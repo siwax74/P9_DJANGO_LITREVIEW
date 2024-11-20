@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Lien vers un fichier CSS si nécessaire -->
+</head>
+<body class="body-class">
+    <header class="header-class">
+        <!-- Contenu de la barre de navigation -->
+        <nav class="nav-class">
+            <ul class="nav-list">
+                {% if user.is_authenticated %}
+                    <li class="nav-item"><a href="{% url 'accounts_app:logout' %}" class="nav-link">Se déconnecter</a></li>
+                {% endif %}
+                <li class="nav-item"><a href="{% url 'app:home' %}" class="nav-link">Accueil</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container main-class">
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer class="footer-class">
+        <!-- Contenu du pied de page -->
+    </footer>
+</body>
+</html>

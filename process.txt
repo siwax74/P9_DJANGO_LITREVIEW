@@ -1,0 +1,72 @@
+py -m venv env
+env\scripts\activate
+pip install Django
+pip install pillow
+pip freeze > requirements.txt
+django-admin startproject backend .
+django-admin startapp app
+
+settings.py:
+INSTALLED_APP:[Ajouter l'app]
+TEMPLATES = DIRS: [BASE_DIR / "templates"]
+LANGUAGE_CODE: 'fr'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "app/static"),
+]
+
+Création dossier: *fichier créé **dossier crée
+1. dossier 'templates'**
+    - fichier 'base.html'*
+    - dossier 'app'**
+        - fichier 'home.html'*
+2. dossier 'media'**
+3. dossier 'static'
+    -  dossier 'css'
+    -  dossier 'js'
+
+templates/**   
+app/
+    templates/**
+             app/**
+    media/**
+    static/**
+          css/**
+          js/**
+
+python manage.py migrate
+python manage.py createsuperuser
+    - Pseudo
+    - Email
+    - Mot de passe
+backend/
+    urls.py:
+
+python manage.py runserver
+
+création de l'app "accounts_app"
+    - django-admin startapp accounts_app
+    - Crée dossier "models"
+        - Créer un fichier "user_manager.py"
+        - Créer un fichier "user.py"
+    - Crée un dossier "form" et y mettre le fichier "forms.py"
+        - Crée un fichier "login.py" / "signup.py"
+    - Crée un dossier "views"
+        - Créer les fichier "login.py" / "signup.py"
+    - Crée un dossier "templates/accounts_app"
+        - Créer les fichiers "login.html" / "signup.html"
+    - Créer un fichier "urls.py" et y ajouter les routes
+
+A la racine du projet:
+    - Créer un fichier .env
+    - pip install environ
+    - Écrire dans le fichier settings.py :
+        import environ
+        env = environ.Env()
+        environ.Env.read_env(BASE_DIR / '.env')
+        SECRET_KEY = env('SECRET_KEY')
+    - Écrire dans le fichier .env :
+        SECRET_KEY = 'votre_secret_key'
+
+
