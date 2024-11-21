@@ -1,0 +1,85 @@
+/* MOBIL-FIRST */
+* {
+  background-color: #00083f; /* Couleur de fond */
+  box-sizing: border-box; /* Gestion des bordures et du padding */
+  font-family: "Montserrat", sans-serif; /* Police de caractères */
+  color: white; /* Couleur du texte */
+  margin: 0; /* Suppression des marges par défaut */
+  padding: 0; /* Suppression des paddings par défaut */
+}
+
+body {
+  line-height: 1.6; /* Amélioration de la lisibilité */
+}
+
+/* Styles pour l'en-tête */
+.header {
+  display: flex; /* Utilisation de flexbox pour l'alignement */
+  justify-content: space-between; /* Espacement entre logo et navigation */
+  align-items: center; /* Alignement vertical */
+  padding: 1rem; /* Espacement interne */
+  background-color: #001e6b; /* Couleur d'arrière-plan de l'en-tête */
+}
+
+/* Logo */
+.logo {
+  max-width: 100%; /* Taille maximale du logo */
+}
+
+/* Styles pour la navigation */
+.navigation {
+  display: flex; /* Utilisation de flexbox pour la navigation */
+}
+
+.nav-list {
+  list-style: none; /* Suppression des puces de liste */
+  display: flex; /* Affichage des éléments de liste en ligne */
+}
+
+.nav-item {
+  margin-left: 1.5rem; /* Espacement entre les éléments de navigation */
+}
+
+.nav-link {
+  text-decoration: none; /* Suppression du soulignement des liens */
+  color: white; /* Couleur des liens */
+  font-weight: bold; /* Mise en gras des liens */
+  transition: color 0.3s; /* Transition pour le changement de couleur */
+}
+
+.nav-link:hover {
+  color: #ffcc00; /* Couleur au survol */
+}
+
+/* Styles pour le contenu principal */
+.main-content {
+  padding: 0 2rem 2rem 2rem; /* haut, droite, bas, gauche */
+}
+
+.container {
+  max-width: 1200px; /* Largeur maximale du conteneur */
+  margin: 0 auto; /* Centrage du conteneur */
+  padding: 0 1rem; /* Espacement horizontal */
+}
+
+/* Styles pour le pied de page */
+.footer {
+  padding: 1rem; /* Espacement interne du pied de page */
+  text-align: center; /* Centrage du texte */
+  background-color: #001e6b; /* Couleur d'arrière-plan du pied de page */
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .header {
+      padding: 1.5rem; /* Augmentation de l'espacement sur les écrans plus larges */
+  }
+
+  .nav-item {
+      margin-left: 2rem; /* Espacement accru entre les éléments de navigation */
+  }
+
+  .main-content {
+      padding: 3rem; /* Espacement accru pour le contenu principal */
+  }
+}

@@ -1,29 +1,41 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Lien vers un fichier CSS si nécessaire -->
+    <title>LitReview</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block head %}{% endblock %}
 </head>
-<body class="body-class">
-    <header class="header-class">
-        <!-- Contenu de la barre de navigation -->
-        <nav class="nav-class">
-            <ul class="nav-list">
-                {% if user.is_authenticated %}
-                    <li class="nav-item"><a href="{% url 'accounts_app:logout' %}" class="nav-link">Se déconnecter</a></li>
-                {% endif %}
-                <li class="nav-item"><a href="{% url 'app:home' %}" class="nav-link">Accueil</a></li>
-            </ul>
-        </nav>
+<body class="body">
+    <header class="header">
+        <div class="container">
+            <a href="{% url 'app:home' %}">
+                <img src="{% static 'images/logos/litreview.png' %}" alt="Logo du site" class="logo">
+            </a>
+            {% if user.is_authenticated %}
+            <nav class="navigation">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="{% url 'accounts_app:logout' %}" class="nav-link">Se déconnecter</a>
+                    </li>
+                </ul>
+            </nav>
+            {% endif %}
+        </div>
     </header>
-    <main class="container main-class">
-        {% block content %}
-        {% endblock %}
+    <main class="main-content">
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+        </div>
     </main>
-    <footer class="footer-class">
-        <!-- Contenu du pied de page -->
+    <footer class="footer">
+        <div class="container">
+            <!-- Contenu du pied de page -->
+        </div>
     </footer>
 </body>
 </html>

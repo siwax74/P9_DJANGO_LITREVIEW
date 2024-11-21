@@ -12,8 +12,11 @@ TEMPLATES = DIRS: [BASE_DIR / "templates"]
 LANGUAGE_CODE: 'fr'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+STATIC_URL = 'static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "app/static"),
+    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, "app\static"),
+    os.path.join(BASE_DIR, "accounts_app\static")
 ]
 
 Création dossier: *fichier créé **dossier crée

@@ -1,0 +1,50 @@
+/* Styles pour la page d'accueil */
+.home {
+    padding: 0 2rem 2rem 2rem; /* haut, droite, bas, gauche */
+    text-align: center; /* Centrer le texte */
+}
+
+.home__welcome {
+    font-size: 2rem; /* Taille de police pour le message de bienvenue */
+    margin-bottom: 1rem; /* Espacement en dessous du titre */
+}
+
+.home__prompt {
+    font-size: 1.2rem; /* Taille de police pour le message d'invite */
+    margin-bottom: 2rem; /* Espacement en dessous du message */
+}
+
+/* Styles pour la section de connexion */
+.login-section {
+    background-color: #002a5c; /* Couleur d'arrière-plan pour la section de connexion */
+    padding: 1.5rem; /* Espacement interne */
+    border-radius: 8px; /* Coins arrondis */
+    margin-bottom: 2rem; /* Espacement en dessous de la section */
+}
+
+.login-section__title {
+    font-size: 1.5rem; /* Taille de police pour le titre de connexion */
+    margin-bottom: 1rem; /* Espacement en dessous du titre */
+}
+
+/* Styles pour la section d'inscription */
+.signup-section {
+    background-color: #002a5c; /* Couleur d'arrière-plan pour la section d'inscription */
+    padding: 1.5rem; /* Espacement interne */
+    border-radius: 8px; /* Coins arrondis */
+}
+
+.signup-section__title {
+    font-size: 1.5rem; /* Taille de police pour le titre d'inscription */
+    margin-bottom: 1rem; /* Espacement en dessous du titre */
+}
+
+.signup-section__link a {
+    color: #ffcc00; /* Couleur du lien d'inscription */
+    font-weight: bold; /* Mise en gras du lien */
+    text-decoration: none; /* Suppression du soulignement */
+}
+
+.signup-section__link a:hover {
+    text-decoration: underline; /* Soulignement au survol */
+}
