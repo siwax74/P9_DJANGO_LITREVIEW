@@ -1,0 +1,20 @@
+<!-- ticket_snippet.html -->
+{% for post in posts %}
+{% if post.title %}
+<div class="ticket">
+    {% if post.user == request.user %}
+      <span>Vous avez demandé une critique</span>
+    {% else %}
+      <span>{{ post.user.email }} a demandé une critique</span>
+    {% endif %}
+    <span>{{ post.time_created|date:"d M Y H:i" }}</span>
+    <h3>{{ post.title }}</h3>
+    <p>{{ post.description }}</p>
+    {% if post.image %}
+      <img src="{{ post.image.url }}" alt="Ticket Image" class="ticket-image" /><br>
+    {% else %}
+      <p class="no-image">Pas d'image disponible</p>
+    {% endif %}
+  </div>
+  {% endif %}
+  {% endfor %}

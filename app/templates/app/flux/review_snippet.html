@@ -1,0 +1,25 @@
+<!-- review_snippet.html -->
+{% for post in posts %}
+{% if post.headline %}
+<div class="review">
+    <h4>{{ post.headline }}</h4>
+    {% if post.user == request.user %}
+      <p>Vous avez publié une critique</p>
+    {% else %}
+      <p>{{ post.user.username }} a publié une critique</p>
+    {% endif %}
+    <p>Note : {{ post.rating }}/5</p>
+    <p>{{ post.body }}</p>
+    <p>Créé le : {{ post.time_created|date:"d M Y H:i" }}</p>
+    <div class="review-ticket">
+    <p>Ticket : {{ post.ticket.title }}</p>
+    <p>{{ post.ticket.description }}</p>
+    {% if post.ticket.image %}
+    <img src="{{ post.ticket.image.url }}" alt="Ticket Image" class="ticket-image" /><br>
+  {% else %}
+    <p class="no-image">Pas d'image disponible</p>
+  {% endif %}
+  </div>
+  </div>
+  {% endif %}
+  {% endfor %}

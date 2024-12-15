@@ -10,7 +10,6 @@ __pycache__/
 *.log
 *.pot
 *.pyc
-*.sqlite3
 *.env
 
 # Virtual Environment

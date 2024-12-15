@@ -21,5 +21,5 @@ def signup(request):
                 user = Customer.objects.create_user(email=email, password=password, first_name=first_name, last_name=last_name)
                 user = authenticate(request, email=email, password=password)
                 login(request, user)
-                return redirect('app:home')
+                return redirect('app:flux')
     return render(request, 'accounts_app/signup.html')

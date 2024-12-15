@@ -1,50 +1,117 @@
 /* Styles pour la page d'accueil */
 .home {
-    padding: 0 2rem 2rem 2rem; /* haut, droite, bas, gauche */
     text-align: center; /* Centrer le texte */
-}
-
-.home__welcome {
-    font-size: 2rem; /* Taille de police pour le message de bienvenue */
-    margin-bottom: 1rem; /* Espacement en dessous du titre */
-}
-
-.home__prompt {
-    font-size: 1.2rem; /* Taille de police pour le message d'invite */
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem 1rem; /* Ajout de padding pour plus d'espace */
+  }
+  
+  .home__welcome {
+    margin-bottom: 1.5rem; /* Espacement amélioré */
+    font-size: 1.8rem; /* Texte plus grand pour attirer l'attention */
+    font-weight: bold; /* Mise en valeur */
+  }
+  
+  .home__prompt {
     margin-bottom: 2rem; /* Espacement en dessous du message */
-}
-
-/* Styles pour la section de connexion */
-.login-section {
-    background-color: #002a5c; /* Couleur d'arrière-plan pour la section de connexion */
-    padding: 1.5rem; /* Espacement interne */
-    border-radius: 8px; /* Coins arrondis */
-    margin-bottom: 2rem; /* Espacement en dessous de la section */
-}
-
-.login-section__title {
-    font-size: 1.5rem; /* Taille de police pour le titre de connexion */
-    margin-bottom: 1rem; /* Espacement en dessous du titre */
-}
-
-/* Styles pour la section d'inscription */
-.signup-section {
-    background-color: #002a5c; /* Couleur d'arrière-plan pour la section d'inscription */
-    padding: 1.5rem; /* Espacement interne */
-    border-radius: 8px; /* Coins arrondis */
-}
-
-.signup-section__title {
-    font-size: 1.5rem; /* Taille de police pour le titre d'inscription */
-    margin-bottom: 1rem; /* Espacement en dessous du titre */
-}
-
-.signup-section__link a {
-    color: #ffcc00; /* Couleur du lien d'inscription */
-    font-weight: bold; /* Mise en gras du lien */
-    text-decoration: none; /* Suppression du soulignement */
-}
-
-.signup-section__link a:hover {
-    text-decoration: underline; /* Soulignement au survol */
-}
+    font-size: 1.2rem; /* Texte légèrement plus grand */
+    line-height: 1.8; /* Meilleure lisibilité */
+    color: #d3d3d3; /* Couleur légèrement plus claire */
+  }
+  
+  /* Styles pour la section de connexion */
+  .login-section {
+    text-align: left; /* Alignement naturel pour les formulaires */
+    padding: 2rem 1rem;
+    background-color: #001a66; /* Contraste avec le fond principal */
+    border-radius: 8px; /* Bords arrondis */
+    max-width: 90%;
+    margin: 0 auto; /* Centre le formulaire */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajout d'une ombre subtile */
+  }
+  .section-row {
+    margin-top: 50px;
+  }
+  /* Styles pour la section d'inscription */
+  .signup-section {
+    margin-top: 2rem;
+    text-align: center;
+    border-radius: 8px;
+    max-width: 500px;
+    margin: 2rem auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .signup-section__title {
+    margin-bottom: 1rem;
+    font-weight: bold;
+    color: #00bfff;
+  }
+  .signup-section__link {
+    width: 85%;
+    margin: 0 auto;
+    border: none;
+    border-radius: 6px;
+    background-color: #00bfff;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .signup-section__link:hover {
+    background-color: #0056b3; /* Couleur plus foncée au survol */
+  }
+  
+  .signup-section__link a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 50px; /* Aligne le texte verticalement */
+  }
+  
+  /* Responsiveness */
+  @media (min-width: 768px) {
+    .home {
+      width: 80%;
+    }
+    .login-section {
+      width: 70%;
+    }
+    .signup-section__link {
+      width: 75%;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .home {
+      width: 100%;
+    }
+    .section-row {
+      display: flex;
+    }
+    .login-section,
+    .signup-section {
+      padding: 3rem 2rem;
+      max-width: 40%;
+    }
+    .signup-section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: inherit;
+      box-shadow: inherit;
+      border-radius: inherit;
+    }
+  
+    .login-form input {
+      font-size: 1.1rem;
+    }
+  
+    .signup-section__title {
+      font-size: 1rem;
+    }
+  }
+  

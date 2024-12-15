@@ -11,3 +11,9 @@ class Customer(AbstractUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
     objects = CustomUserManager()
+
+    def __str__(self):
+        """
+        Returns a string representation of the Customer instance.
+        """
+        return f"{self.email} (ID: {self.id})"

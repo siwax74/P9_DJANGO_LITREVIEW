@@ -1,85 +1,174 @@
-/* MOBIL-FIRST */
+/* Base Styling */
 * {
-  background-color: #00083f; /* Couleur de fond */
   box-sizing: border-box; /* Gestion des bordures et du padding */
   font-family: "Montserrat", sans-serif; /* Police de caractères */
   color: white; /* Couleur du texte */
   margin: 0; /* Suppression des marges par défaut */
   padding: 0; /* Suppression des paddings par défaut */
 }
-
 body {
-  line-height: 1.6; /* Amélioration de la lisibilité */
+  background-color: #00083f; /* Couleur de fond */
 }
 
-/* Styles pour l'en-tête */
+a, p {
+  font-size: 14px;
+  line-height: 1.5; /* Amélioration de la lisibilité */
+}
+
+/* En-tête */
 .header {
   display: flex; /* Utilisation de flexbox pour l'alignement */
   justify-content: space-between; /* Espacement entre logo et navigation */
   align-items: center; /* Alignement vertical */
   padding: 1rem; /* Espacement interne */
-  background-color: #001e6b; /* Couleur d'arrière-plan de l'en-tête */
+  max-width: 1320px; /* Limite la largeur de l'en-tête */
+  margin: 0 auto; /* Centre l'en-tête */
+  background-color: #00083f; /* Couleur de fond de l'en-tête */
+}
+.menu-bar {
+  display: flex;
+  align-items: center;
+}
+
+#hamburger-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10; /* Assure que le bouton est au-dessus des autres éléments */
+}
+
+#hamburger-button.active span {
+  background: #00bfff; /* Couleur des barres lorsque le menu est ouvert */
+}
+#hamburger-button span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: white; /* Couleur des barres */
+  margin: 5px 0;
+  transition: all 0.3s ease;
+}
+/* Navigation */
+.navigation {
+  display: none; /* Masquer le menu par défaut */
+  position: absolute; /* Positionnement absolu pour le menu */
+  right: 0; /* Aligne le menu à droite */
+  background-color: #001a66; /* Couleur de fond du menu */
+  width: 100%; /* Prend toute la largeur de l'en-tête */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre pour le menu */
+  z-index: 5; /* Assure que le menu est au-dessus des autres éléments */
+}
+
+.navigation.open {
+  display: block; /* Afficher le menu lorsque la classe 'open' est ajoutée */
+  width: 30%;
+}
+
+.nav-list {
+  list-style: none; /* Supprime les puces de la liste */
+  padding: 0; /* Supprime le padding par défaut */
+  margin: 0; /* Supprime la marge par défaut */
+}
+
+.nav-item {
+  padding: 1rem; /* Espacement interne pour chaque élément de menu */
+}
+
+.nav-link {
+  color: white; /* Couleur du texte des liens */
+  text-decoration: none; /* Supprime le soulignement */
+  display: block; /* Permet de cliquer sur toute la zone de l'élément */
+}
+
+.nav-link:hover {
+  color: #00bfff; /* Couleur de fond au survol */
 }
 
 /* Logo */
 .logo {
-  max-width: 100%; /* Taille maximale du logo */
+  max-width: 100%; /* Contrôle de la taille maximale */
+  height: auto; /* Garde le ratio */
 }
 
-/* Styles pour la navigation */
-.navigation {
-  display: flex; /* Utilisation de flexbox pour la navigation */
+.diviser-header {
+  max-width: 1320px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
 }
 
-.nav-list {
-  list-style: none; /* Suppression des puces de liste */
-  display: flex; /* Affichage des éléments de liste en ligne */
+.breadcrumb_area {
+  max-width: 1320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 15px;
+  height: 150px;
 }
 
-.nav-item {
-  margin-left: 1.5rem; /* Espacement entre les éléments de navigation */
-}
-
-.nav-link {
-  text-decoration: none; /* Suppression du soulignement des liens */
-  color: white; /* Couleur des liens */
-  font-weight: bold; /* Mise en gras des liens */
-  transition: color 0.3s; /* Transition pour le changement de couleur */
-}
-
-.nav-link:hover {
-  color: #ffcc00; /* Couleur au survol */
-}
-
-/* Styles pour le contenu principal */
+/* Contenu principal */
 .main-content {
-  padding: 0 2rem 2rem 2rem; /* haut, droite, bas, gauche */
+  width: 100%;
+  max-width: 1320px; /* Limite la largeur sur les grands écrans */
+  margin: 0 auto; /* Centre le contenu */
+  padding: 1rem;
 }
 
-.container {
-  max-width: 1200px; /* Largeur maximale du conteneur */
-  margin: 0 auto; /* Centrage du conteneur */
-  padding: 0 1rem; /* Espacement horizontal */
-}
-
-/* Styles pour le pied de page */
+/* Pied de page */
 .footer {
-  padding: 1rem; /* Espacement interne du pied de page */
+  padding: 1.5rem; /* Espacement interne */
   text-align: center; /* Centrage du texte */
-  background-color: #001e6b; /* Couleur d'arrière-plan du pied de page */
+  font-size: 12px;
+  opacity: 0.8; /* Rendu léger et subtil */
+  margin-top: 300px;
+  max-width: 1320px;
+  margin: 0 auto;
 }
 
-/* Responsive Design */
+.footer a {
+  color: #00bfff; /* Couleur pour les liens dans le footer */
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsiveness */
+
 @media (min-width: 768px) {
-  .header {
-      padding: 1.5rem; /* Augmentation de l'espacement sur les écrans plus larges */
+  .link-logo-header {
+    width: 30%; /* Augmentation de la largeur disponible */
+  }
+  .menu-bar {
+    display: none;
+  }
+  .navigation {
+    display: flex; /* Affiche le menu en mode flex */
+    position: static; /* Positionne le menu de manière statique */
+    background-color: transparent; /* Couleur de fond transparente */
+    box-shadow: none; /* Supprime l'ombre */
+    width: auto; /* Ajuste la largeur automatiquement */
+  }
+
+  .nav-list {
+    display: flex;
+    align-items: center;
   }
 
   .nav-item {
-      margin-left: 2rem; /* Espacement accru entre les éléments de navigation */
+    padding: 0 1rem; /* Espacement horizontal pour chaque élément de menu */
   }
 
-  .main-content {
-      padding: 3rem; /* Espacement accru pour le contenu principal */
+  .nav-link {
+    color: white; /* Couleur du texte des liens */
+    text-decoration: none; /* Supprime le soulignement */
+  }
+
+  /* Optionnel : styles pour le bouton hamburger */
+  #hamburger-button {
+    display: none; /* Masque le bouton hamburger sur les écrans plus larges */
   }
 }

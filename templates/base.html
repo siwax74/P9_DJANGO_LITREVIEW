@@ -2,40 +2,67 @@
 
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LitReview</title>
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    {% block head %}{% endblock %}
-</head>
-<body class="body">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/menu.css' %}" />
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/logos/litreview.png' %}" />
+    {% block extra_css %}{% endblock %}
+  </head>
+  <body class="body">
     <header class="header">
-        <div class="container">
-            <a href="{% url 'app:home' %}">
-                <img src="{% static 'images/logos/litreview.png' %}" alt="Logo du site" class="logo">
-            </a>
-            {% if user.is_authenticated %}
-            <nav class="navigation">
-                <ul class="nav-list">
-                    <li class="nav-item">
-                        <a href="{% url 'accounts_app:logout' %}" class="nav-link">Se déconnecter</a>
-                    </li>
-                </ul>
-            </nav>
-            {% endif %}
-        </div>
+      <a class="link-logo-header" href="{% url 'app:home' %}">
+        <img src="{% static 'img/logos/litreview.png' %}" alt="Logo du site" class="logo" />
+      </a>
+      <nav class="navigation" id="navigation-menu">
+        <ul class="nav-list">
+          {% if not user.is_authenticated %}
+          <li class="nav-item">
+            <a href="{% url 'app:home' %}" class="nav-link">Accueil</a>
+          </li>
+          {% endif %}
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a href="{% url 'app:flux' %}" class="nav-link">Flux</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'accounts_app:logout' %}" class="nav-link">Posts</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'accounts_app:logout' %}" class="nav-link">Abonnements</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'accounts_app:logout' %}" class="nav-link">Se déconnecter</a>
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
+      <div class="menu-bar">
+        <button id="hamburger-button" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </header>
-    <main class="main-content">
-        <div class="container">
-            {% block content %}
-            {% endblock %}
-        </div>
-    </main>
+    <div class="diviser-header">
+      {% if user.is_authenticated %}
+      <h3 class="home__welcome">Bienvenue, {{ user }} !</h3>
+      {% endif %}
+    </div>
+
+    <section class="breadcrumb_area">{% block breadcrumb_area %}{% endblock %}</section>
+
+    <main class="main-content">{% block content %}{% endblock %}</main>
+
     <footer class="footer">
-        <div class="container">
-            <!-- Contenu du pied de page -->
-        </div>
+      <div class="container">
+        <!-- Contenu du pied de page -->
+      </div>
     </footer>
-</body>
+
+    <script src="{% static 'js/menu.js' %}"></script>
+  </body>
 </html>

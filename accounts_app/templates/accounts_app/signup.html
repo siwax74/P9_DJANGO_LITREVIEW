@@ -1,37 +1,47 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% load static %}
 
-{% load static %}
+{% block extra_css%}
+<link rel="stylesheet" href="{% static 'css/signup.css' %}" />
+{% endblock %}
 
 {% block content %}
+<h1 class="home__welcome">Bienvenue sur notre site LitReview !</h1>
+<p class="p-diviser-inner">Vous pouvez dès a présent vous inscrire ci-dessous !</p>
 <div class="signup">
-            <h1>Créer un compte</h1>
-            <form method="post" class="form__signup">
-                {% csrf_token %}
-                <div class="form__group">
-                    <label for="first_name">Prénom</label>
-                    <input id="first_name" type="text" name="first_name" placeholder="Votre Prénom" required>
-                </div>
-                <div class="form__group">
-                    <label for="last_name">Nom</label>
-                    <input id="last_name" type="text" name="last_name" placeholder="Votre Nom" required>
-                </div>
-                <div class="form__group">
-                    <label for="email">Email</label>
-                    <input id="email" type="email" name="email" placeholder="email@example.com" required>
-                </div>
-                <div class="form__group">
-                    <label for="password">Mot de passe</label>
-                    <input id="password" type="password" name="password" placeholder="Au moins 8 caractères" required>
-                </div>
-                <div class="form__group">
-                    <label for="password1">Entrez votre mot de passe de nouveau</label>
-                    <input id="password1" type="password" name="password1" placeholder="" required>
-                </div>
-                <button type="submit" class="btn__signup" >S'inscrire</button>
-            </form>
-            
-            <div class="a__diviser__inner">
-                Vous possédez déjà un compte? <a href="{% url 'app:home' %}" class="identificate__link">Identifiez-vous ></a>
-            </div>
+  <h2 class="signup-section__title">Inscription</h2>
+  <form method="post" class="signup-form">
+    {% csrf_token %}
+    <div class="form-group">
+      <input id="first_name" type="text" name="first_name" placeholder="Prénom" required class="form-input" />
     </div>
+    <div class="form-group">
+      <input id="last_name" type="text" name="last_name" placeholder="Nom" required class="form-input" />
+    </div>
+    <div class="form-group">
+      <input id="email" type="email" name="email" placeholder="Email@example.com" required class="form-input" />
+    </div>
+    <div class="form-group">
+      <input
+        id="password"
+        type="password"
+        name="password"
+        placeholder="Au moins 8 caractères"
+        required
+        class="form-input"
+      />
+    </div>
+    <div class="form-group">
+      <input id="password1" type="password" name="password1" placeholder="Retapez votre mot de passe" required class="form-input" />
+    </div>
+    <div id="SignuplegalText" class="signup-legal-text">
+        En continuant, vous acceptez les <a href="">conditions d'utilisation </a> de LitReview. Consultez notre <a href="">déclaration de confidentialité</a>, notre <a href="">politique relative aux cookies</a> ainsi que notre <a href="">politique relative aux publicités ciblées par centres d’intérêts</a>.
+      </div>
+    <button type="submit" class="btn-signup">S'inscrire</button>
+
+  </form>
+
+  <div class="a-diviser-inner">
+    Vous possédez déjà un compte? <a href="{% url 'app:home' %}" class="identificate-link">Identifiez-vous ></a>
+  </div>
+</div>
 {% endblock %}

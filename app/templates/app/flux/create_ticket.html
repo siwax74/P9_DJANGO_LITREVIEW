@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/create_ticket.css' %}" />
+{% endblock %} 
+
+{% block content %}
+<div class="create-ticket">
+  <form method="POST">
+    {% csrf_token %}
+    <section>
+      <!-- Section Livre / Article -->
+      <h3>Livres / Articles</h3>
+      <div>
+        <label for="{{ create_ticket_form.title.id_for_label }}">Titre :</label><br />
+        {{ create_ticket_form.title }} {{ create_ticket_form.title.errors }}
+      </div>
+      <div>
+        <label for="{{ create_ticket_form.description.id_for_label }}">Description :</label><br />
+        {{ create_ticket_form.description }} {{ create_ticket_form.description.errors }}
+      </div>
+      <div>
+        <label for="{{ create_ticket_form.image.id_for_label }}">Image :</label><br />
+        {{ create_ticket_form.image }} {{ create_ticket_form.image.errors }}
+      </div>
+    </section>
+
+    <!-- Section Critique -->
+    <section>
+      <h3>Critique</h3>
+      <div>
+        <label for="{{ create_ticket_form.headline.id_for_label }}">Titre :</label><br />
+        {{ create_ticket_form.headline }} {{ create_ticket_form.headline.errors }}
+      </div>
+      <div>
+        <label for="{{ create_ticket_form.rating.id_for_label }}">Note :</label><br />
+        {{ create_ticket_form.rating }} {{ create_ticket_form.rating.errors }}
+      </div>
+      <div>
+        <label for="{{ create_ticket_form.body.id_for_label }}">Commentaire :</label><br />
+        {{ create_ticket_form.body }} {{ create_ticket_form.body.errors }}
+      </div>
+    </section>
+    <button type="submit">Soumettre</button>
+  </form>
+</div>
+{% endblock %}

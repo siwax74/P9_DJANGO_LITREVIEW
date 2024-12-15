@@ -73,3 +73,19 @@ A la racine du projet:
         SECRET_KEY = 'votre_secret_key'
 
 
+TIPS // Changement mot de pass //
+python manage.py shell
+>>>from django.contrib.auth.hashers import make_password
+>>>hashed_password = make_password('test1')
+>>>print(hashed_password)
+- Copier coller le hashed_password dans dans la table de la bdd.
+
+Création des différents formulaires :
+- Crée un dossier "form" dans le dossier "app"
+- Crée un fichier "create_ticket_form.py" dans le dossier "form"
+
+    Exemple d'utilisation avec modelForm.
+        - class TicketForm(forms.ModelForm):
+            class Meta:
+                model = Ticket
+

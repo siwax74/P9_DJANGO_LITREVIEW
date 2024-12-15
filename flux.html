@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/flux.css' %}" />
+{% endblock %} 
+
+{% block content %}
+<div class="flux">
+  <div class="action-links">
+    <a href="{% url 'app:request-ticket' %}" class="btn btn-primary">Demander une critique</a>
+    <a href="{% url 'app:create-ticket' %}" class="btn btn-secondary">Créer une critique</a>
+  </div>
+
+  <div class="flux-items">
+    {% if posts %}
+      <div class="items">
+        {% for post in posts %}
+          <div class="post">
+            {% if post.title %}
+              {% include 'app/flux/ticket_snippet.html' %}
+            {% elif post.headline %}
+              {% include 'app/flux/review_snippet.html' %}
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p>Aucun billet ou critique à afficher.</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

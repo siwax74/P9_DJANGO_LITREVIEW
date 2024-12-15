@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/flux.css' %}" />
+{% endblock %}
+
+{% block breadcrumb_area %}
+  <h2>{{ title_view }}</h2>
+  <div class="breadcrumb-path">
+    <span class="breadcrumb-label">Flux ➡️</span>
+    <a href="{% url 'app:flux' %}" class="breadcrumb-link">{{ title_view }}</a>
+  </div>
+{% endblock %}
+
+
+{% block content %}
+<div class="flux">
+  <div class="action-links">
+    <a href="{% url 'app:request-ticket' %}" class="btn btn-primary">Demander une critique</a>
+    <a href="{% url 'app:create-ticket' %}" class="btn btn-secondary">Créer une critique</a>
+  </div>
+
+  <div class="flux-items">
+    {% if posts %}
+      <div class="items">
+          <div class="post">
+              {% include 'app/flux/ticket_snippet.html' %}
+              {% include 'app/flux/review_snippet.html' %}
+          </div>
+      </div>
+    {% else %}
+      <p>Aucun billet ou critique à afficher.</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
