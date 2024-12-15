@@ -5,9 +5,11 @@
 Cloner le dépôt à partir de GitHub
 Demandez aux utilisateurs de cloner votre dépôt depuis GitHub. Ils doivent s'assurer qu'ils récupèrent la branche dev spécifiquement.
 
-bash
-Copier le code
-git clone -b dev <URL_DU_DEPOT_GIT>
-cd <NOM_DU_DEPOT>
 
+Copier le code
+```bash
+git clone -b dev https://github.com/siwax74/P9_DJANGO_LITREVIEW.git
+
+cd <NOM_DU_DEPOT>
+```
 🚀🚀🕒🕒🕒🕒
