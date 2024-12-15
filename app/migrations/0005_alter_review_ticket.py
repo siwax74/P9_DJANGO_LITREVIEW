@@ -7,13 +7,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('app', '0004_alter_ticket_image'),
+        ("app", "0004_alter_ticket_image"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='review',
-            name='ticket',
-            field=models.ForeignKey(blank=True, on_delete=django.db.models.deletion.CASCADE, to='app.ticket'),
+            model_name="review",
+            name="ticket",
+            field=models.ForeignKey(blank=True, on_delete=django.db.models.deletion.CASCADE, to="app.ticket"),
         ),
     ]
