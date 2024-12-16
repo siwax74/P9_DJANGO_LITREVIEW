@@ -6,11 +6,14 @@
 {% endblock %}
 
 {% block breadcrumb_area %}
+<div class="breadcrumb_area_first_div">
   <h2>{{ title_view }}</h2>
   <div class="breadcrumb-path">
-    <span class="breadcrumb-label">Flux ➡️</span>
-    <a href="{% url 'app:flux' %}" class="breadcrumb-link">{{ title_view }}</a>
+    <a href="{% url 'app:flux' %}" class="breadcrumb-link">Flux</a>
+    <span class="breadcrumb-arrow">→</span>
+    <span class="breadcrumb-label">Flux</span>
   </div>
+</div>
 {% endblock %}
 
 
@@ -23,15 +26,26 @@
 
   <div class="flux-items">
     {% if posts %}
-      <div class="items">
-          <div class="post">
-              {% include 'app/flux/ticket_snippet.html' %}
-              {% include 'app/flux/review_snippet.html' %}
-          </div>
-      </div>
+        <div class="items">
+            <div class="post">
+                <!-- Afficher les critiques -->
+                {% for post in posts %}
+                    {% if post.headline %}
+                        {% include 'app/flux/review_snippet.html' %}
+                    {% endif %}
+                {% endfor %}
+
+                <!-- Afficher les tickets -->
+                {% for post in posts %}
+                    {% if post.title %}
+                        {% include 'app/flux/ticket_snippet.html' %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
     {% else %}
-      <p>Aucun billet ou critique à afficher.</p>
+        <p>Aucun billet ou critique à afficher.</p>
     {% endif %}
-  </div>
+</div>
 </div>
 {% endblock %}

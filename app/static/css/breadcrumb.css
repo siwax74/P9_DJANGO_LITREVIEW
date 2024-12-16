@@ -1,0 +1,48 @@
+.breadcrumb_area {
+    padding: 1rem;
+
+}
+.breadcrumb_area_first_div {
+    max-width: 1320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+.breadcrumb-path {
+    display: flex;
+    align-items: baseline;
+}
+.breadcrumb-link {
+    text-decoration: none; /* Supprime le soulignement par défaut */
+    position: relative; /* Nécessaire pour le positionnement absolu */
+}
+.breadcrumb-link:hover {
+    text-decoration: none; /* Supprime le soulignement par défaut au survol */
+    color: #00bfff; /* Couleur du texte au survol */
+}
+.breadcrumb-link:hover::after {
+    content: ''; /* Crée un pseudo-élément */
+    position: absolute; /* Positionne le pseudo-élément */
+    left: 0; /* Aligne à gauche */
+    right: 0; /* Aligne à droite */
+    bottom: -0.5px; /* Ajuste la position verticale */
+    height: 2px; /* Épaisseur du soulignement */
+    background-color: #00bfff; /* Couleur du soulignement */
+    transition: all 0.3s; /* Transition pour un effet fluide */
+}
+
+.breadcrumb-arrow {
+    width: 25px;
+    text-align: center;
+    color: #00bfff; /* Couleur du symbole */
+    font-size: 0.8rem; /* Taille de la police */
+    transition: color 0.3s; /* Transition pour un effet au survol */
+}
+.breadcrumb-label {
+    font-size: 14px;
+}
+.breadcrumb-arrow:hover {
+    color: #007bff; /* Couleur au survol */
+}

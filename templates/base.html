@@ -6,7 +6,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LitReview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/breadcrumb.css' %}" />
     <link rel="stylesheet" href="{% static 'css/menu.css' %}" />
     <link rel="shortcut icon" type="image/png" href="{% static 'img/logos/litreview.png' %}" />
     {% block extra_css %}{% endblock %}
@@ -53,7 +55,10 @@
       {% endif %}
     </div>
 
-    <section class="breadcrumb_area">{% block breadcrumb_area %}{% endblock %}</section>
+    <section class="breadcrumb_area">
+      {% block breadcrumb_area %}
+      {% endblock %}
+    </section>
 
     <main class="main-content">{% block content %}{% endblock %}</main>
 

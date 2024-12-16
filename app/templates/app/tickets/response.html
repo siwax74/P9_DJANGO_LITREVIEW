@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/create_ticket.css' %}" />
+{% endblock %}
+
+{% block breadcrumb_area %}
+<div class="breadcrumb_area_first_div">
+  <h2>{{ title_view }}</h2>
+  <div class="breadcrumb-path">
+    <a href="{% url 'app:flux' %}" class="breadcrumb-link">Flux</a>
+    <span class="breadcrumb-arrow">→</span>
+    <span class="breadcrumb-label">Réponse critique</span>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div>{{ ticket }}</div>
+<img src="{{ ticket.image.url }}" alt="Ticket Image" class="ticket-image" /><br>
+
+<div class="response-ticket">
+  <form method="POST">
+    {% csrf_token %}
+    <div>
+      {{ create_ticket_form.rating.label }}: {{ create_ticket_form.rating }}
+    </div>
+    <div>
+      {{ create_ticket_form.headline.label }}: {{ create_ticket_form.headline }}
+    </div>
+    <div>
+      {{ create_ticket_form.body.label }}: {{ create_ticket_form.body }}
+    </div>
+  </form>
+</div>
+
+{% endblock %}

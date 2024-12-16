@@ -1,3 +1,4 @@
+import pprint
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from app.models.review import Review
@@ -29,5 +30,5 @@ def flux(request):
         key=lambda post: post.time_created,
         reverse=True,
     )
-
+    pprint.pprint(posts)
     return render(request, "app/flux/flux.html", {"posts": posts, "title_view": title_view})

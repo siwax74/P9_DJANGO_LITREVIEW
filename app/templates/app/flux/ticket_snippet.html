@@ -1,6 +1,4 @@
 <!-- ticket_snippet.html -->
-{% for post in posts %}
-{% if post.title %}
 <div class="ticket">
     {% if post.user == request.user %}
       <span>Vous avez demandé une critique</span>
@@ -15,6 +13,7 @@
     {% else %}
       <p class="no-image">Pas d'image disponible</p>
     {% endif %}
+    {% if post.user != request.user %}
+    <a href="{% url 'app:ticket-detail' post.id %}" class="btn-login">Créer une critique</a>
+{% endif %}
   </div>
-  {% endif %}
-  {% endfor %}

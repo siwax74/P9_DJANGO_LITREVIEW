@@ -7,6 +7,7 @@ from app.models.review import Review
 
 @login_required
 def create_ticket(request):
+    title_view = "Critique"
     if request.method == "POST":
         create_ticket_form = CreateTicketForm(request.POST, request.FILES)
         if create_ticket_form.is_valid():
@@ -29,5 +30,6 @@ def create_ticket(request):
     else:
         create_ticket_form = CreateTicketForm()
 
-    context = {"create_ticket_form": create_ticket_form}
-    return render(request, "app/flux/create_ticket.html", context)
+    context = {"create_ticket_form": create_ticket_form,
+               "title_view": title_view}
+    return render(request, "app/reviews/create.html", context)

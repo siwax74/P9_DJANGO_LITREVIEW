@@ -5,6 +5,7 @@
   color: white; /* Couleur du texte */
   margin: 0; /* Suppression des marges par défaut */
   padding: 0; /* Suppression des paddings par défaut */
+  font-family: 'Sora', sans-serif;
 }
 body {
   background-color: #00083f; /* Couleur de fond */
@@ -92,22 +93,11 @@ a, p {
 
 .diviser-header {
   max-width: 1320px;
+  padding: 1rem;
   display: flex;
   justify-content: center;
   margin: 0 auto;
 }
-
-.breadcrumb_area {
-  max-width: 1320px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  padding: 15px;
-  height: 150px;
-}
-
 /* Contenu principal */
 .main-content {
   width: 100%;
