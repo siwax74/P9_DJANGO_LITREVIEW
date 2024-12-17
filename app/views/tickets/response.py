@@ -3,6 +3,7 @@ from django.shortcuts import get_object_or_404, render
 from app.form.create_ticket_form import CreateTicketForm
 from app.models.ticket import Ticket
 
+
 @login_required
 def ticket_detail(request, ticket_id):
     title_view = "Critique"
@@ -18,10 +19,8 @@ def ticket_detail(request, ticket_id):
             pass  # Remplacez ceci par votre logique de traitement
     else:
         create_ticket_form = CreateTicketForm()  # Créez un formulaire vide pour les requêtes GET
-
     print(ticket)
-    return render(request, 'app/tickets/response.html', {
-        'create_ticket_form': create_ticket_form,
-        'ticket': ticket,
-        'title_view': title_view
-    })
+    return render(request, "app/tickets/response.html", {"create_ticket_form": create_ticket_form,
+                                                         "ticket": ticket,
+                                                         "title_view": title_view},
+    )

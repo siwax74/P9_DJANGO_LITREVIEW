@@ -30,6 +30,5 @@ def create_ticket(request):
     else:
         create_ticket_form = CreateTicketForm()
 
-    context = {"create_ticket_form": create_ticket_form,
-               "title_view": title_view}
+    context = {"create_ticket_form": create_ticket_form, "title_view": title_view}
     return render(request, "app/reviews/create.html", context)

@@ -18,21 +18,24 @@
 {% endblock %}
 
 {% block content %}
-<div>{{ ticket }}</div>
-<img src="{{ ticket.image.url }}" alt="Ticket Image" class="ticket-image" /><br>
 
 <div class="response-ticket">
-  <form method="POST">
+  <div>
+    <p>Vous êtes en train de poster une réponse à : </p>
+    {% include 'app/flux/ticket_snippet.html' with post=ticket %}
+</div>
+  <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    <div>
-      {{ create_ticket_form.rating.label }}: {{ create_ticket_form.rating }}
-    </div>
     <div>
       {{ create_ticket_form.headline.label }}: {{ create_ticket_form.headline }}
     </div>
     <div>
+      {{ create_ticket_form.rating.label }}: {{ create_ticket_form.rating }}
+    </div>
+    <div>
       {{ create_ticket_form.body.label }}: {{ create_ticket_form.body }}
     </div>
+    <button type="submit">Soumettre</button>
   </form>
 </div>
 

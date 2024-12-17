@@ -12,5 +12,5 @@ urlpatterns = [
     path("flux/", flux, name="flux"),
     path("request_ticket/", request_ticket, name="request-ticket"),
     path("create_ticket/", create_ticket, name="create-ticket"),
-    path('ticket/<int:ticket_id>/', ticket_detail, name='ticket-detail'),
+    path("ticket/<int:ticket_id>/", ticket_detail, name="ticket-detail"),
 ]
