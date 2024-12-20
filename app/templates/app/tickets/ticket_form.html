@@ -1,24 +1,4 @@
-{% extends 'base.html' %}
-
-{% load static %}
-
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/create_ticket.css' %}" />
-{% endblock %}
-
-{% block breadcrumb_area %}
-<div class="breadcrumb_area_first_div">
-  <h2>{{ title_view }}</h2>
-  <div class="breadcrumb-path">
-    <a href="{% url 'app:flux' %}" class="breadcrumb-link">Flux</a>
-    <span class="breadcrumb-arrow">→</span>
-    <span class="breadcrumb-label">demander un ticket</span>
-  </div>
-</div>
-{% endblock %}
-
-{% block content %}
-<form method="POST" enctype="multipart/form-data">
+<form method="POST" action="{{ action_url }}" enctype="multipart/form-data">
     {% csrf_token %}
     <div>
         <label for="{{ request_ticket_form.title.id_for_label }}">Titre :</label><br>
@@ -37,4 +17,3 @@
     </div>
     <button type="submit">Soumettre</button>
 </form>
-{% endblock %}

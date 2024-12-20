@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/create_ticket.css' %}" />
+{% endblock %}
+
+{% block breadcrumb_area %}
+<div class="breadcrumb_area_first_div">
+  <h2>{{ title_view }}</h2>
+  <div class="breadcrumb-path">
+    <a href="{% url 'app:flux' %}" class="breadcrumb-link">Flux</a>
+    <span class="breadcrumb-arrow">→</span>
+    <span class="breadcrumb-label">Crée une critique</span>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="create-ticket">
+  {% include 'app/reviews/review_form.html' with post=ticket %}
+</div>
+{% endblock %}

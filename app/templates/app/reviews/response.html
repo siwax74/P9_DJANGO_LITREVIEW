@@ -18,25 +18,13 @@
 {% endblock %}
 
 {% block content %}
-
 <div class="response-ticket">
   <div>
     <p>Vous êtes en train de poster une réponse à : </p>
     {% include 'app/flux/ticket_snippet.html' with post=ticket %}
+  </div>
+  <div>
+    {% include 'app/reviews/response_review_form.html' %}
+  </div>
 </div>
-  <form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    <div>
-      {{ create_ticket_form.headline.label }}: {{ create_ticket_form.headline }}
-    </div>
-    <div>
-      {{ create_ticket_form.rating.label }}: {{ create_ticket_form.rating }}
-    </div>
-    <div>
-      {{ create_ticket_form.body.label }}: {{ create_ticket_form.body }}
-    </div>
-    <button type="submit">Soumettre</button>
-  </form>
-</div>
-
 {% endblock %}

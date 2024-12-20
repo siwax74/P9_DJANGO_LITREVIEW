@@ -4,7 +4,7 @@
     {% if post.user == request.user %}
       <p>Vous avez publié une critique</p>
     {% else %}
-      <p>{{ post.user.username }} a publié une critique</p>
+      <p>{{ post.user }} a publié une critique</p>
     {% endif %}
     <p>Note : {{ post.rating }}/5</p>
     <p>{{ post.body }}</p>

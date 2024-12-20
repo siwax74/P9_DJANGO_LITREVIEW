@@ -1,12 +1,11 @@
-from django.shortcuts import redirect, render
-from app.form.request_ticket_form import RequestTicketForm
+from django.shortcuts import redirect
+from app.forms.request_ticket_form import RequestTicketForm
 from app.models.ticket import Ticket
 from django.contrib.auth.decorators import login_required
 
 
 @login_required
-def request_ticket(request):
-    title_view = "Ticket"
+def create_ticket(request):
     if request.method == "POST":
         # Créer une instance de formulaire avec POST et FILES
         request_ticket_form = RequestTicketForm(request.POST, request.FILES)
@@ -23,11 +22,3 @@ def request_ticket(request):
                 image=image,
             )
             return redirect("app:flux")
-    else:
-        request_ticket_form = RequestTicketForm()
-
-    context = {
-        "request_ticket_form": request_ticket_form,
-        "title_view": title_view,
-    }
-    return render(request, "app/tickets/create.html", context)

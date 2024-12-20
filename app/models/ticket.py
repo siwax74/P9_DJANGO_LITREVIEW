@@ -12,16 +12,3 @@ class Ticket(models.Model):
 
     def __str__(self):
         return f"{self.title}, {self.user}, {self.time_created}"
-
-    def as_dict(self):
-        """
-        Convert the Ticket instance to a dictionary.
-        """
-        return {
-            "id": self.id,
-            "user": self.user if self.user else None,
-            "title": self.title,
-            "description": self.description,
-            "image": self.image.url if self.image else None,
-            "time_created": self.time_created,
-        }

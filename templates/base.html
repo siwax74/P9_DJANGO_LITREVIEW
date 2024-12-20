@@ -30,7 +30,7 @@
             <a href="{% url 'app:flux' %}" class="nav-link">Flux</a>
           </li>
           <li class="nav-item">
-            <a href="{% url 'accounts_app:logout' %}" class="nav-link">Posts</a>
+            <a href="{% url 'app:post-list' %}" class="nav-link">Posts</a>
           </li>
           <li class="nav-item">
             <a href="{% url 'accounts_app:logout' %}" class="nav-link">Abonnements</a>
@@ -68,6 +68,8 @@
       </div>
     </footer>
 
+    {% block extra_js %}
     <script src="{% static 'js/menu.js' %}"></script>
+    {% endblock extra_js %}
   </body>
 </html>

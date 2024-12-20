@@ -16,36 +16,37 @@
 </div>
 {% endblock %}
 
-
 {% block content %}
 <div class="flux">
   <div class="action-links">
-    <a href="{% url 'app:request-ticket' %}" class="btn btn-primary">Demander une critique</a>
-    <a href="{% url 'app:create-ticket' %}" class="btn btn-secondary">Créer une critique</a>
+    <a href="{% url 'app:show-ticket-form' %}" class="btn btn-primary">Demander une critique</a>
+    <a href="{% url 'app:show-review-form' %}" class="btn btn-secondary">Créer une critique</a>
   </div>
 
   <div class="flux-items">
     {% if posts %}
-        <div class="items">
-            <div class="post">
-                <!-- Afficher les critiques -->
-                {% for post in posts %}
-                    {% if post.headline %}
-                        {% include 'app/flux/review_snippet.html' %}
-                    {% endif %}
-                {% endfor %}
+      <div class="items">
+        {% for post in posts %}
+          <div class="post">
+            <!-- Afficher les critiques -->
+            {% if post.headline %}
+              <div class="review-list">
+                {% include 'app/flux/review_snippet.html' %}
+              </div>
+            {% endif %}
 
-                <!-- Afficher les tickets -->
-                {% for post in posts %}
-                    {% if post.title %}
-                        {% include 'app/flux/ticket_snippet.html' %}
-                    {% endif %}
-                {% endfor %}
-            </div>
-        </div>
+            <!-- Afficher les tickets -->
+            {% if post.title %}
+              <div class="ticket-list">
+                {% include 'app/flux/ticket_snippet.html' %}
+              </div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
     {% else %}
-        <p>Aucun billet ou critique à afficher.</p>
+      <p>Aucun billet ou critique à afficher.</p>
     {% endif %}
-</div>
+  </div>
 </div>
 {% endblock %}
