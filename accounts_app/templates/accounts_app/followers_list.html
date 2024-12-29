@@ -18,12 +18,38 @@
 {% block content %}
 <div class="search-container">
   <h3>Suivre d'autres utilisateurs</h3>
-  <form id='add-user-form' method="POST">
-    {% csrf_token %} 
-      {{ research_user_form.as_p }}
-      <button id='btn-add-user' type="submit">Envoyer</button>
+  <form id="add-user-form" method="POST">
+    {% csrf_token %}
+    <div class="input-container">
+      <span>{{ research_user_form.email }}</span>
+      <span><button id="btn-add-user" type="submit">Envoyer</button></span>
+    </div>
   </form>
 </div>
+
+<div class="unfollowers-container">
+  <h3>Abonnements</h3>
+  <form method="POST">
+    {% csrf_token %}
+    {% for follow in followed_user %}
+      <div class="user-unfollow">
+        <span>{{ follow.followed_user.email }}</span>
+        <span><button type="submit" name="unfollow" value="{{ follow.followed_user.id }}">Désabonner</button></span>
+      </div>
+    {% empty %}
+      <p>Aucun abonnement trouvé.</p>
+    {% endfor %}
+  </form>
+
+
+</div class="followers-container">
+<div>
+<h3>Abonnés</h3>
+{% for follower in followers %}
+<span>{{ follower.user }}</span>
+{% endfor %}
+</div>
+
 {% endblock %}
 
 {% block extra_js %}

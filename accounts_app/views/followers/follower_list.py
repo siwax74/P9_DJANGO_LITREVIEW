@@ -1,4 +1,5 @@
 from itertools import chain
+from django.forms import modelformset_factory
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from accounts_app.forms.research_user_form import UserSearchForm
@@ -9,10 +10,22 @@ from accounts_app.models.user_follows import UserFollows
 def followers_list(request):
     title_view = "Abonnements"
     user = request.user
+
+    # Récupérer les abonnements de l'utilisateur
     followed_user = UserFollows.objects.filter(user=user)
+
+    # Récupérer les abonnés de l'utilisateur
+    followers = UserFollows.objects.filter(followed_user=user)
+
+    # Formulaire de recherche utilisateur
     research_user_form = UserSearchForm()
 
-    context = {"followed_user": followed_user, "title_view": title_view, "research_user_form": research_user_form}
+    context = {
+        "followed_user": followed_user,
+        "followers": followers,
+        "title_view": title_view,
+        "research_user_form": research_user_form,
+    }
     return render(request, "accounts_app/followers_list.html", context)
 
 
