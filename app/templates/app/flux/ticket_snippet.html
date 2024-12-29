@@ -13,7 +13,7 @@
     {% else %}
       <p class="no-image">Pas d'image disponible</p>
     {% endif %}
-    {% if post.user != request.user %}
+    {% if post.user != request.user and not post.review_set.exists %}
     <a href="{% url 'app:ticket-detail' post.id %}" class="btn-login">Créer une critique</a>
 {% endif %}
   </div>

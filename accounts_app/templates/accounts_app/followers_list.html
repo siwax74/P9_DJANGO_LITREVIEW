@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+
+{% endblock %}
+
+{% block breadcrumb_area %}
+<div class="breadcrumb_area_first_div">
+  <h2>{{ title_view }}</h2>
+  <div class="breadcrumb-path">
+    <a href="{% url 'app:flux' %}" class="breadcrumb-link">Flux</a>
+    <span class="breadcrumb-arrow">→</span>
+    <span class="breadcrumb-label">Abonnements</span>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="search-container">
+  <h3>Rechercher un utilisateur</h3>
+  <form method="GET" action="">
+      {{ research_user_form.as_p }}
+      <button type="submit">Rechercher</button>
+  </form>
+</div>
+{% endblock %}

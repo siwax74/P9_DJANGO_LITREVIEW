@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Review, Ticket, UserFollows
+from accounts_app.models.user_follows import UserFollows
+from .models import Review, Ticket
 
 
 class ReviewAdmin(admin.ModelAdmin):
