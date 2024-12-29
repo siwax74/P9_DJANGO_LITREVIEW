@@ -2,7 +2,6 @@
 {% load static %}
 
 {% block extra_css %}
-
 {% endblock %}
 
 {% block breadcrumb_area %}
@@ -18,10 +17,15 @@
 
 {% block content %}
 <div class="search-container">
-  <h3>Rechercher un utilisateur</h3>
-  <form method="GET" action="">
+  <h3>Suivre d'autres utilisateurs</h3>
+  <form id='add-user-form' method="POST">
+    {% csrf_token %} 
       {{ research_user_form.as_p }}
-      <button type="submit">Rechercher</button>
+      <button id='btn-add-user' type="submit">Envoyer</button>
   </form>
 </div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/research_user.js' %}"></script>
 {% endblock %}

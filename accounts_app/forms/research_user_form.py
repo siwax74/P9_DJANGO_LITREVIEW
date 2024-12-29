@@ -1,4 +1,5 @@
 from django import forms
 
+
 class UserSearchForm(forms.Form):
-    username = forms.CharField(label='Nom d\'utilisateur', max_length=150)
+    email = forms.EmailField(label="Adresse e-mail", max_length=150)
