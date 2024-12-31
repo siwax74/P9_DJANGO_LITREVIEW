@@ -6,8 +6,6 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def post_delete(request, post_id):
-    """Supprime un ticket ou une critique appartenant à l'utilisateur."""
-
     # Supprimer si méthode POST
     if request.method == "POST":
         try:

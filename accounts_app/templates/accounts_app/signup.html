@@ -1,10 +1,6 @@
-{% extends 'base.html' %} {% load static %}
-
-{% block extra_css%}
+{% extends 'base.html' %} {% load static %} {% block extra_css%}
 <link rel="stylesheet" href="{% static 'css/signup.css' %}" />
-{% endblock %}
-
-{% block content %}
+{% endblock %} {% block content %}
 <h1 class="home__welcome">Bienvenue sur notre site LitReview !</h1>
 <p class="p-diviser-inner">Vous pouvez dès a présent vous inscrire ci-dessous !</p>
 <div class="signup">
@@ -31,13 +27,21 @@
       />
     </div>
     <div class="form-group">
-      <input id="password1" type="password" name="password1" placeholder="Retapez votre mot de passe" required class="form-input" />
+      <input
+        id="password1"
+        type="password"
+        name="password1"
+        placeholder="Retapez votre mot de passe"
+        required
+        class="form-input"
+      />
     </div>
     <div id="SignuplegalText" class="signup-legal-text">
-        En continuant, vous acceptez les <a href="">conditions d'utilisation </a> de LitReview. Consultez notre <a href="">déclaration de confidentialité</a>, notre <a href="">politique relative aux cookies</a> ainsi que notre <a href="">politique relative aux publicités ciblées par centres d’intérêts</a>.
-      </div>
+      En continuant, vous acceptez les <a href="">conditions d'utilisation </a> de LitReview. Consultez notre
+      <a href="">déclaration de confidentialité</a>, notre <a href="">politique relative aux cookies</a> ainsi que
+      notre <a href="">politique relative aux publicités ciblées par centres d’intérêts</a>.
+    </div>
     <button type="submit" class="btn-signup">S'inscrire</button>
-
   </form>
 
   <div class="a-diviser-inner">

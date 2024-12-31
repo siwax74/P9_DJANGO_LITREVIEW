@@ -1,29 +1,18 @@
-{% extends 'base.html' %}
-{% load static %}
-
-{% block extra_css %}
+{% extends 'base.html' %} {% load static %} {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/posts.css' %}" />
-{% endblock %}
-
-{% block breadcrumb_area %}
+{% endblock %} {% block breadcrumb_area %}
 <div class="breadcrumb_area_first_div">
-    <h2>{{ title_view }}</h2>
-    <div class="breadcrumb-path">
-        <a href="{% url 'app:flux' %}" class="breadcrumb-link">Flux</a>
-        <span class="breadcrumb-arrow">→</span>
-        <span class="breadcrumb-label">{{ title_view }}</span>
-    </div>
+  <h2>{{ title_view }}</h2>
+  <div class="breadcrumb-path">
+    <a href="{% url 'app:flux' %}" class="breadcrumb-link">Flux</a>
+    <span class="breadcrumb-arrow">→</span>
+    <span class="breadcrumb-label">{{ title_view }}</span>
+  </div>
 </div>
-{% endblock %}
-
-{% block content %}
+{% endblock %} {% block content %}
 <div class="update-post">
-    {% if review_form %}
-    {% include 'app/flux/review_snippet.html' %}
-        {% include 'app/reviews/response_review_form.html' %}
-    {% elif request_ticket_form %}
-    {% include 'app/flux/ticket_snippet.html' %}
-    {% include 'app/tickets/ticket_form.html' %}
-    {% endif %}
+  {% if review_form %} {% include 'app/flux/review_snippet.html' %} {% include 'app/reviews/response_review_form.html'
+  %} {% elif request_ticket_form %} {% include 'app/flux/ticket_snippet.html' %} {% include
+  'app/tickets/ticket_form.html' %} {% endif %}
 </div>
 {% endblock %}

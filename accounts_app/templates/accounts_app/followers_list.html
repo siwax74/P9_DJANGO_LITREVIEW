@@ -29,7 +29,7 @@
 
 <div class="unfollowers-container">
   <h3>Abonnements</h3>
-  <form method="POST">
+  <form method="POST" action="{% url 'accounts_app:unfollow' %}">
     {% csrf_token %}
     {% for follow in followed_user %}
       <div class="user-unfollow">

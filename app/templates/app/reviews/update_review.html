@@ -1,7 +1,4 @@
-{% extends 'base.html' %}
-{% load static %}
-
-{% block breadcrumb_area %}
+{% extends 'base.html' %} {% load static %} {% block breadcrumb_area %}
 <div class="breadcrumb_area_first_div">
   <h2>{{ title_view }}</h2>
   <div class="breadcrumb-path">
@@ -10,13 +7,11 @@
     <span class="breadcrumb-label">Crée une critique</span>
   </div>
 </div>
-{% endblock %}
-
-{% block content %}
+{% endblock %} {% block content %}
 
 <div>
-    <p>{% include 'app/flux/review_snippet.html' %}</p>
-    {% include 'app/reviews/response_review_form.html' %}
+  <p>{% include 'app/flux/review_snippet.html' %}</p>
+  {% include 'app/reviews/response_review_form.html' %}
 </div>
 
 {% endblock %}

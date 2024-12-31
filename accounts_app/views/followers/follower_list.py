@@ -1,23 +1,20 @@
-from itertools import chain
-from django.forms import modelformset_factory
-from django.http import HttpResponse, JsonResponse
-from django.shortcuts import render
+from django.http import HttpResponse
+from django.shortcuts import get_object_or_404, redirect, render
 from accounts_app.forms.research_user_form import UserSearchForm
 from accounts_app.models.user import Customer
 from accounts_app.models.user_follows import UserFollows
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import get_user_model
 
 
 def followers_list(request):
     title_view = "Abonnements"
     user = request.user
 
-    # Récupérer les abonnements de l'utilisateur
     followed_user = UserFollows.objects.filter(user=user)
 
-    # Récupérer les abonnés de l'utilisateur
     followers = UserFollows.objects.filter(followed_user=user)
 
-    # Formulaire de recherche utilisateur
     research_user_form = UserSearchForm()
 
     context = {
@@ -49,7 +46,16 @@ def search_user(request):
                 return HttpResponse("Success", status=200)
             except Customer.DoesNotExist:
                 return HttpResponse("Utilisateur non trouvé !", status=404)
-            except Exception as e:
-                return HttpResponse("Erreur !", status=500)
         else:
             return HttpResponse("Veuillez entrer un Email valide !", status=400)
+
+
+@login_required
+def unfollow(request):
+    if request.method == "POST":
+        followed_user_id = request.POST.get("unfollow")
+        User = get_user_model()
+        followed_user = get_object_or_404(User, id=followed_user_id)
+        UserFollows.objects.filter(user=request.user, followed_user=followed_user).delete()
+        return redirect("app:flux")
+    return redirect("app:flux")

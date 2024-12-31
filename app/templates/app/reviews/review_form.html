@@ -1,49 +1,40 @@
-<form method="POST"  action="{% url 'app:create-review' %}" enctype="multipart/form-data">
-    {% csrf_token %}
-    <section>
-      <!-- Section Livre / Article -->
-      <h3>Livres / Articles</h3>
-      <div>
-        <label for="{{ create_review_form.title.id_for_label }}">
-          {{ create_review_form.title.label }}
-        </label><br />
-        {{ create_review_form.title }} {{ create_review_form.title.errors }}
-      </div>
-      <div>
-        <label for="{{ create_review_form.description.id_for_label }}">
-          {{ create_review_form.description.label }}
-        </label><br />
-        {{ create_review_form.description }} {{ create_review_form.description.errors }}
-      </div>
-      <div>
-        <label for="{{ create_review_form.image.id_for_label }}">
-          {{ create_review_form.image.label }}
-        </label><br />
-        {{ create_review_form.image }} {{ create_review_form.image.errors }}
-      </div>
-    </section>
+<form method="POST" action="{% url 'app:create-review' %}" enctype="multipart/form-data">
+  {% csrf_token %}
+  <section>
+    <!-- Section Livre / Article -->
+    <h3>Livres / Articles</h3>
+    <div>
+      <label for="{{ create_review_form.title.id_for_label }}"> {{ create_review_form.title.label }} </label><br />
+      {{ create_review_form.title }} {{ create_review_form.title.errors }}
+    </div>
+    <div>
+      <label for="{{ create_review_form.description.id_for_label }}">
+        {{ create_review_form.description.label }} </label
+      ><br />
+      {{ create_review_form.description }} {{ create_review_form.description.errors }}
+    </div>
+    <div>
+      <label for="{{ create_review_form.image.id_for_label }}"> {{ create_review_form.image.label }} </label><br />
+      {{ create_review_form.image }} {{ create_review_form.image.errors }}
+    </div>
+  </section>
 
-    <!-- Section Critique -->
-    <section>
-      <h3>Critique</h3>
-      <div>
-        <label for="{{ create_review_form.headline.id_for_label }}">
-          {{ create_review_form.headline.label }}
-        </label><br />
-        {{ create_review_form.headline }} {{ create_review_form.headline.errors }}
-      </div>
-      <div>
-        <label for="{{ create_ticket_form.rating.id_for_label }}">
-          {{ create_review_form.rating.label }}
-        </label><br />
-        {{ create_review_form.rating }} {{ create_review_form.rating.errors }}
-      </div>
-      <div>
-        <label for="{{ create_review_form.body.id_for_label }}">
-          {{ create_review_form.body.label }}
-        </label><br />
-        {{ create_review_form.body }} {{ create_review_form.body.errors }}
-      </div>
-    </section>
-    <button type="submit">Soumettre</button>
-  </form>
+  <!-- Section Critique -->
+  <section>
+    <h3>Critique</h3>
+    <div>
+      <label for="{{ create_review_form.headline.id_for_label }}"> {{ create_review_form.headline.label }} </label
+      ><br />
+      {{ create_review_form.headline }} {{ create_review_form.headline.errors }}
+    </div>
+    <div>
+      <label for="{{ create_ticket_form.rating.id_for_label }}"> {{ create_review_form.rating.label }} </label><br />
+      {{ create_review_form.rating }} {{ create_review_form.rating.errors }}
+    </div>
+    <div>
+      <label for="{{ create_review_form.body.id_for_label }}"> {{ create_review_form.body.label }} </label><br />
+      {{ create_review_form.body }} {{ create_review_form.body.errors }}
+    </div>
+  </section>
+  <button type="submit">Soumettre</button>
+</form>

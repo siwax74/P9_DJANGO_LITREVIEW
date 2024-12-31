@@ -1,12 +1,6 @@
-{% extends 'base.html' %}
-
-{% load static %}
-
-{% block extra_css %}
+{% extends 'base.html' %} {% load static %} {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/create_ticket.css' %}" />
-{% endblock %}
-
-{% block breadcrumb_area %}
+{% endblock %} {% block breadcrumb_area %}
 <div class="breadcrumb_area_first_div">
   <h2>{{ title_view }}</h2>
   <div class="breadcrumb-path">
@@ -15,16 +9,12 @@
     <span class="breadcrumb-label">Réponse critique</span>
   </div>
 </div>
-{% endblock %}
-
-{% block content %}
+{% endblock %} {% block content %}
 <div class="response-ticket">
   <div>
-    <p>Vous êtes en train de poster une réponse à : </p>
+    <p>Vous êtes en train de poster une réponse à :</p>
     {% include 'app/flux/ticket_snippet.html' with post=ticket %}
   </div>
-  <div>
-    {% include 'app/reviews/response_review_form.html' %}
-  </div>
+  <div>{% include 'app/reviews/response_review_form.html' %}</div>
 </div>
 {% endblock %}

@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Success
             alert('Utilisateur suivi avec succès !');
             addUserForm.reset();
+            location.reload();
         } catch (error) {
             console.error('Erreur:', error);
             alert(`Erreur: ${error.message}`);

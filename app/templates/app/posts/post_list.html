@@ -1,70 +1,57 @@
-{% extends 'base.html' %}
-{% load static %}
-
-{% block extra_css %}
+{% extends 'base.html' %} {% load static %} {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/posts.css' %}" />
-{% endblock %}
-
-{% block breadcrumb_area %}
+{% endblock %} {% block breadcrumb_area %}
 <div class="breadcrumb_area_first_div">
-    <h2>{{ title_view }}</h2>
-    <div class="breadcrumb-path">
-        <a href="{% url 'app:flux' %}" class="breadcrumb-link">Flux</a>
-        <span class="breadcrumb-arrow">→</span>
-        <span class="breadcrumb-label">{{ title_view }}</span>
-    </div>
+  <h2>{{ title_view }}</h2>
+  <div class="breadcrumb-path">
+    <a href="{% url 'app:flux' %}" class="breadcrumb-link">Flux</a>
+    <span class="breadcrumb-arrow">→</span>
+    <span class="breadcrumb-label">{{ title_view }}</span>
+  </div>
 </div>
-{% endblock %}
-
-{% block content %}
+{% endblock %} {% block content %}
 <div class="post-list">
-    <h1>Mes Posts</h1>
+  <h1>Mes Posts</h1>
 
-    {% if messages %}
-        <div class="messages">
-            {% for message in messages %}
-                <div class="alert alert-{{ message.tags }}">
-                    {{ message }}
-                </div>
-            {% endfor %}
-        </div>
-    {% endif %}
-
-    {% if posts %}
-        <div class="posts">
-            {% for post in posts %}
-                <div class="post">
-                    {% if post.title %}
-                    <div class="ticket-list">
-                        {% include 'app/flux/ticket_snippet.html' %}
-                        <span><a href="{% url 'app:post-update' post.id %}">Modifier</a></span>
-                        <span>
-                            <button class="btn-delete" data-id="{{ post.id }}" data-url="{% url 'app:post-delete' post.id %}">
-                                Supprimer
-                            </button>
-                        </span>
-                    </div>
-                    {% elif post.headline %}
-                    <div class="review-list">
-                        {% include 'app/flux/review_snippet.html' %}
-                        <span><a href="{% url 'app:post-update' post.id %}">Modifier</a></span>
-                        <span>
-                            <button class="btn-delete" data-id="{{ post.id }}" data-url="{% url 'app:post-delete' post.id %}">
-                                Supprimer
-                            </button>
-                        </span>
-                    </div>
-                    {% endif %}
-                </div>
-            {% endfor %}
-        </div>
-    {% else %}
-        <p>Aucun post à afficher.</p>
-    {% endif %}
+  {% if messages %}
+  <div class="messages">
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+  </div>
+  {% endif %} {% if posts %}
+  <div class="posts">
+    {% for post in posts %}
+    <div class="post">
+      {% if post.title %}
+      <div class="ticket-list">
+        {% include 'app/flux/ticket_snippet.html' %}
+        <span><a href="{% url 'app:post-update' post.id %}">Modifier</a></span>
+        <span>
+          <button class="btn-delete" data-id="{{ post.id }}" data-url="{% url 'app:post-delete' post.id %}">
+            Supprimer
+          </button>
+        </span>
+      </div>
+      {% elif post.headline %}
+      <div class="review-list">
+        {% include 'app/flux/review_snippet.html' %}
+        <span><a href="{% url 'app:post-update' post.id %}">Modifier</a></span>
+        <span>
+          <button class="btn-delete" data-id="{{ post.id }}" data-url="{% url 'app:post-delete' post.id %}">
+            Supprimer
+          </button>
+        </span>
+      </div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p>Aucun post à afficher.</p>
+  {% endif %}
 </div>
 
-{% endblock %}
-
-{% block extra_js %}
+{% endblock %} {% block extra_js %}
 <script src="{% static 'js/posts.js' %}"></script>
 {% endblock %}
