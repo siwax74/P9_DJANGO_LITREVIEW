@@ -2,6 +2,8 @@
 {% load static %}
 
 {% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/followers.css' %}">
+<link rel="stylesheet" href="{% static 'css/form.css' %}">
 {% endblock %}
 
 {% block breadcrumb_area %}
@@ -16,40 +18,53 @@
 {% endblock %}
 
 {% block content %}
+<div class="followers">
 <div class="search-container">
-  <h3>Suivre d'autres utilisateurs</h3>
-  <form id="add-user-form" method="POST">
+  <h3 class="form-title">Suivre d'autres utilisateurs</h3>
+  <form class="add-user-form" id="add-user-form" method="POST">
     {% csrf_token %}
     <div class="input-container">
-      <span>{{ research_user_form.email }}</span>
+      <label class="label-research-user">{{ research_user_form.email }}</label>
       <span><button id="btn-add-user" type="submit">Envoyer</button></span>
     </div>
   </form>
 </div>
 
 <div class="unfollowers-container">
-  <h3>Abonnements</h3>
+  <h3 class="form-title">Abonnements</h3>
   <form method="POST" action="{% url 'accounts_app:unfollow' %}">
     {% csrf_token %}
     {% for follow in followed_user %}
-      <div class="user-unfollow">
-        <span>{{ follow.followed_user.email }}</span>
-        <span><button type="submit" name="unfollow" value="{{ follow.followed_user.id }}">Désabonner</button></span>
-      </div>
+    <table class="user-unfollow">
+      <tbody>
+        <tr>
+          <td>{{ follow.followed_user.email }}</td>
+          <td>
+            <button type="submit" name="unfollow" value="{{ follow.followed_user.id }}">Désabonner</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
     {% empty %}
       <p>Aucun abonnement trouvé.</p>
     {% endfor %}
-  </form>
+    </form>
+</div><br>
 
-
-</div class="followers-container">
-<div>
-<h3>Abonnés</h3>
-{% for follower in followers %}
-<span>{{ follower.user }}</span>
-{% endfor %}
+<div class="followers-container">
+  <h3 class="form-title">Abonnés</h3>
+  <table class="followers-table">
+    <tbody>
+      {% for follower in followers %}
+      <tr>
+        <td class="follower-cell">{{ follower.user }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 </div>
 
+</div>
 {% endblock %}
 
 {% block extra_js %}

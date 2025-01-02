@@ -1,15 +1,16 @@
+
 <form method="POST" action="{{ action_url }}" enctype="multipart/form-data">
   {% csrf_token %}
   <div>
-    <label for="{{ request_ticket_form.title.id_for_label }}">Titre :</label><br />
+    <label for="{{ request_ticket_form.title.id_for_label }}">Titre :</label>
     {{ request_ticket_form.title }} {{ request_ticket_form.title.errors }}
   </div>
   <div>
-    <label for="{{ request_ticket_form.description.id_for_label }}">Description :</label><br />
+    <label for="{{ request_ticket_form.description.id_for_label }}">Description :</label>
     {{ request_ticket_form.description }} {{ request_ticket_form.description.errors }}
   </div>
   <div>
-    <label for="{{ request_ticket_form.image.id_for_label }}">Image :</label><br />
+    <label for="{{ request_ticket_form.image.id_for_label }}">Image :</label>
     {{ request_ticket_form.image }} {{ request_ticket_form.image.errors }}
   </div>
   <button type="submit">Soumettre</button>

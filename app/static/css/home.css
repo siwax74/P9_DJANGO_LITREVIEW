@@ -1,33 +1,41 @@
 /* Styles pour la page d'accueil */
+.diviser-header {
+  display: none;
+}
+.breadcrumb_area {
+  display: none;
+}
 .home {
-    text-align: center; /* Centrer le texte */
+    text-align: center;
     width: 100%;
     margin: 0 auto;
-    padding: 2rem 1rem; /* Ajout de padding pour plus d'espace */
+    padding: 2rem 1rem;
   }
   
   .home__welcome {
-    margin-bottom: 1.5rem; /* Espacement amélioré */
-    font-size: 1.8rem; /* Texte plus grand pour attirer l'attention */
-    font-weight: bold; /* Mise en valeur */
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
   }
   
   .home__prompt {
-    margin-bottom: 2rem; /* Espacement en dessous du message */
-    font-size: 1.2rem; /* Texte légèrement plus grand */
-    line-height: 1.8; /* Meilleure lisibilité */
-    color: #d3d3d3; /* Couleur légèrement plus claire */
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #d3d3d3;
+    text-align: center;
   }
   
   /* Styles pour la section de connexion */
   .login-section {
-    text-align: left; /* Alignement naturel pour les formulaires */
+    text-align: left;
     padding: 2rem 1rem;
-    background-color: #001a66; /* Contraste avec le fond principal */
-    border-radius: 8px; /* Bords arrondis */
+    background-color: #001a66;
+    border-radius: 8px;
     max-width: 90%;
-    margin: 0 auto; /* Centre le formulaire */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajout d'une ombre subtile */
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
   .section-row {
     margin-top: 50px;
@@ -47,9 +55,10 @@
     font-weight: bold;
     color: #00bfff;
   }
-  .signup-section__link {
-    width: 85%;
+  .signup-section a {
+    padding: 10px;
     margin: 0 auto;
+    text-decoration: none;
     border: none;
     border-radius: 6px;
     background-color: #00bfff;
@@ -60,19 +69,11 @@
     transition: background-color 0.3s ease;
   }
   
-  .signup-section__link:hover {
-    background-color: #0056b3; /* Couleur plus foncée au survol */
+  .signup-section a:hover {
+    background-color: #0056b3;
   }
-  
-  .signup-section__link a {
-    text-decoration: none;
-    color: white;
-    font-size: 1rem;
-    font-weight: bold;
-    line-height: 50px; /* Aligne le texte verticalement */
-  }
-  
-  /* Responsiveness */
+
+  /* Responsive */
   @media (min-width: 768px) {
     .home {
       width: 80%;
@@ -114,4 +115,3 @@
       font-size: 1rem;
     }
   }
-  

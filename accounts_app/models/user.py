@@ -17,4 +17,4 @@ class Customer(AbstractUser):
         """
         Returns a string representation of the Customer instance.
         """
-        return f"{self.email} (ID: {self.id})"
+        return f"{self.email}"

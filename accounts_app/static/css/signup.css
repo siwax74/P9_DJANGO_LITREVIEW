@@ -1,78 +1,17 @@
-.p-diviser-inner {
-  display: flex;
-  justify-content: center;
-  font-size: 1.2rem;
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-.home__welcome {
-  margin-bottom: 1.5rem;
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin-top: 2rem;
-  display: flex;
-  justify-content: center;
-}
 .signup {
-    text-align: left;
-    padding: 2rem 1rem;
-    background-color: #001a66;
-    border-radius: 8px;
-    max-width: 500px;
-    margin: 0 auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  padding: 2rem 1rem;
+  background-color: #001a66;
+  border-radius: 8px;
+  max-width: 90%;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-    .signup-section__title {
-        margin-bottom: 1rem; /* Espacement sous le titre */
-        font-size: 1.5rem; /* Titre plus grand */
-        font-weight: bold;
-        color: #00bfff; /* Couleur plus vive pour attirer l'attention */
-      }
-  /* Champs du formulaire */
-  .signup-form label {
-    display: block; /* Aligne les labels sur une nouvelle ligne */
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-    color: #d3d3d3;
-  }
-  
-  .signup-form input {
-    width: 100%;
-    padding: 0.8rem;
-    margin-bottom: 1.2rem;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    background-color: #00083f;
-    color: white;
-    font-size: 1rem;
-  }
-  
-  .signup-form input:focus {
-    outline: none;
-    border-color: #00bfff; /* Bordure bleue au focus */
-    box-shadow: 0 0 5px #00bfff;
-  }
-  
-  .signup-form button {
-    width: 100%;
-    padding: 0.8rem;
-    border: none;
-    border-radius: 6px;
-    background-color: #00bfff;
-    color: white;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .signup-form button:hover {
-    background-color: #007bff; /* Couleur plus sombre au survol */
-  }
-  .signup-legal-text {
+.signup-legal-text {
     font-size: 14px;
     margin-bottom: 20px;
   }
+  
   .a-diviser-inner {
     margin-top: 20px
 }
@@ -83,4 +22,16 @@
 }
 .identificate-link:hover {
   text-decoration: underline
+}
+
+@media (min-width: 768px) {
+.signup {
+  text-align: left;
+  padding: 2rem 1rem;
+  background-color: #001a66;
+  border-radius: 8px;
+  max-width: 520px;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 }

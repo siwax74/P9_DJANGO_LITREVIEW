@@ -1,59 +1,10 @@
-  
-    .login-section__title {
-        margin-bottom: 1rem; /* Espacement sous le titre */
-        font-size: 1.5rem; /* Titre plus grand */
-        font-weight: bold;
-        color: #00bfff; /* Couleur plus vive pour attirer l'attention */
-      }
-  /* Champs du formulaire */
-  .login-form label {
-    display: block; /* Aligne les labels sur une nouvelle ligne */
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-    color: #d3d3d3;
-  }
-  
-  .login-form input {
-    width: 100%;
-    padding: 0.8rem;
-    margin-bottom: 1.2rem;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    background-color: #00083f;
-    color: white;
-    font-size: 1rem;
-  }
-  
-  .login-form input:focus {
-    outline: none;
-    border-color: #00bfff; /* Bordure bleue au focus */
-    box-shadow: 0 0 5px #00bfff;
-  }
-  
-  .login-form button {
-    width: 100%;
-    padding: 0.8rem;
-    border: none;
-    border-radius: 6px;
-    background-color: #00bfff;
-    color: white;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .login-form button:hover {
-    background-color: #007bff; /* Couleur plus sombre au survol */
-  }
-
 /* Styles pour le lien de mot de passe oublié */
 .login-forgot-password {
-    margin-bottom: 1rem; /* Espacement en haut */
+    margin-bottom: 1rem;
 }
 .login-forgot-password a {
-    color: #007bff; /* Couleur du lien */
-    text-decoration: none; /* Pas de soulignement */
+    color: #007bff;
+    text-decoration: none;
 }
 .login-legal-text {
     font-size: 14px;
@@ -61,5 +12,5 @@
     text-align: left;
 }
 .login-forgot-password a:hover {
-    text-decoration: underline; /* Souligner au hover */
+    text-decoration: underline;
 }

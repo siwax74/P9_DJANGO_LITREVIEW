@@ -1,0 +1,36 @@
+.form-title {
+    text-align: center;
+}
+.search-container {
+    display: flex;
+    flex-direction: column;
+
+}
+.label-research-user {
+    width: 100%;
+    margin-right: 10px;
+}
+.input-container {
+    display: flex;
+}
+.user-unfollow {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .user-unfollow td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .followers-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .followers-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+  }

@@ -1,27 +1,24 @@
 <!-- ticket_snippet.html -->
-<div class="ticket">
-  <div class="ticket-header">
+  <div class="post-header">
     {% if post.user == request.user %}
-    <span>Vous avez demandé une critique</span>
+    <span class="post-request">Vous avez demandé une critique</span>
     {% else %}
-    <span>{{ post.user.email }} a demandé une critique</span>
+    <span class="post-request">{{ post.user.email }} a demandé une critique</span>
     {% endif %}
-    <span>{{ post.time_created|date:"d M Y H:i" }}</span>
+    <span class="post-date">{{ post.time_created|date:"d M Y H:i" }}</span>
   </div>
-  <br />
-
-  <span class="ticket-title"><h3>{{ post.title }}</h3></span>
-  <span class="ticket-description"><p>{{ post.description }}</p></span>
-  <span class="ticket-image">
+  <br>
+  <div class="post-title"><h3>{{ post.title }}</h3></div><br>
+  <div class="post-description"><p>{{ post.description }}</p></div>
+  <div class="ticket-image">
     {% if post.image %}
-    <img src="{{ post.image.url }}" alt="Ticket Image" class="ticket-image" /><br />
+    <img src="{{ post.image.url }}" alt="Ticket Image" class="post-image" /><br>
     {% else %}
     <p class="no-image">Pas d'image disponible</p>
     {% endif %}
-  </span>
-  <span class="response-ticket-link">
+  </div>
+  <div class="post-response-link">
     {% if post.user != request.user and not post.review_set.exists %}
-    <a href="{% url 'app:ticket-detail' post.id %}" class="">Créer une critique</a>
+    <a href="{% url 'app:ticket-detail' post.id %}" class="btn btn-third">Créer une critique</a>
     {% endif %}
-  </span>
-</div>
+  </div>

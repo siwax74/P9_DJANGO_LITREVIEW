@@ -5,14 +5,15 @@
   <h1 class="home__welcome">Bienvenue sur notre site LitReview !</h1>
   <p class="home__prompt">Veuillez vous connecter ou vous inscrire pour continuer.</p>
   <div class="section-row">
-    <section class="login-section">{% include 'accounts_app/login.html' %}</section>
+    
 
     <section class="signup-section">
-      <h5 class="signup-section__title">--------------- Nouveau chez LitReview ? -------------</h5>
-      <p class="signup-section__link">
+      <h5 class="signup-section__title">------------ Nouveau chez LitReview ? ------------</h5>
         <a href="{% url 'accounts_app:signup' %}">Créer votre compte LitReview</a>
-      </p>
     </section>
+
+    <section class="login-section">{% include 'accounts_app/login.html' %}</section>
+    
   </div>
 </div>
 {% endblock %}

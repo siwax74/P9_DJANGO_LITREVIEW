@@ -2,15 +2,18 @@
 <form method="POST" enctype="multipart/form-data">
   {% csrf_token %}
   <section>
-    <h3>Critique</h3>
+    <h3 class="form-title">Critique</h3>
     <div>
       <label for="{{ review_form.headline.id_for_label }}"> {{ review_form.headline.label }} </label><br />
       {{ review_form.headline }} {{ review_form.headline.errors }}
     </div>
-    <div>
-      <label for="{{ review_form.rating.id_for_label }}"> {{ review_form.rating.label }} </label><br />
-      {{ review_form.rating }} {{ review_form.rating.errors }}
-    </div>
+    <div class="rating-input-row">
+      {% for input in review_form.rating %}
+        <div class="rating-input">
+          {{ input }}{{ input.errors }}
+        </div>
+      {% endfor %}
+      </div>
     <div>
       <label for="{{ review_form.body.id_for_label }}"> {{ review_form.body.label }} </label><br />
       {{ review_form.body }} {{ review_form.body.errors }}

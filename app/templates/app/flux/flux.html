@@ -18,17 +18,16 @@
 
   <div class="flux-items">
     {% if posts %}
-    <div class="items">
       {% for post in posts %}
       <div class="post">
         <!-- Afficher les critiques -->
         {% if post.headline %}
-        <div class="review-list">{% include 'app/flux/review_snippet.html' %}</div>
+        <div class="review">{% include 'app/flux/review_snippet.html' %}</div>
         {% endif %}
 
         <!-- Afficher les tickets -->
         {% if post.title %}
-        <div class="ticket-list">{% include 'app/flux/ticket_snippet.html' %}</div>
+        <div class="ticket">{% include 'app/flux/ticket_snippet.html' %}</div>
         {% endif %}
       </div>
       {% endfor %}
@@ -36,6 +35,5 @@
     {% else %}
     <p>Aucun billet ou critique à afficher.</p>
     {% endif %}
-  </div>
 </div>
 {% endblock %}

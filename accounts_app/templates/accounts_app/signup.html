@@ -1,10 +1,13 @@
 {% extends 'base.html' %} {% load static %} {% block extra_css%}
+<link rel="stylesheet" href="{% static 'css/form.css' %}" />
 <link rel="stylesheet" href="{% static 'css/signup.css' %}" />
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
 {% endblock %} {% block content %}
+<div class="home">
 <h1 class="home__welcome">Bienvenue sur notre site LitReview !</h1>
-<p class="p-diviser-inner">Vous pouvez dès a présent vous inscrire ci-dessous !</p>
+<p class="home__prompt">Vous pouvez dès a présent vous inscrire ci-dessous !</p>
 <div class="signup">
-  <h2 class="signup-section__title">Inscription</h2>
+  <h2 class="form-title">Inscription</h2>
   <form method="post" class="signup-form">
     {% csrf_token %}
     <div class="form-group">
@@ -47,5 +50,6 @@
   <div class="a-diviser-inner">
     Vous possédez déjà un compte? <a href="{% url 'app:home' %}" class="identificate-link">Identifiez-vous ></a>
   </div>
+</div>
 </div>
 {% endblock %}

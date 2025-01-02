@@ -1,26 +1,26 @@
 <!-- review_snippet.html -->
-<div class="review">
-  <div class="review-header">
+  <div class="post-header">
     {% if post.user == request.user %}
-    <span>Vous avez publié une critique</span>
+    <span class="post-request">Vous avez publié une critique</span>
     {% else %}
-    <span>{{ post.user }} a publié une critique</span>
+    <span class="post-request">{{ post.user }} a publié une critique</span>
     {% endif %}
-    <span class="review-time-created">{{ post.time_created|date:"d M Y H:i" }}</span>
+    <span class="post-date">{{ post.time_created|date:"d M Y H:i" }}</span>
+  </div><br>
+
+  <div class="post-review-row">
+  <div class="post-title" ><h4>{{ post.headline }}</h4></div>
+  <div class="post-rating"><p>- {{ post.rating }}/5</p></div>
   </div>
-  <br />
 
-  <span class="review-headline"><h4>{{ post.headline }}</h4></span>
+  <div class="post-description"><p>{{ post.body }}</p></div>
 
-  <span class="review-rating"><p>- {{ post.rating }}/5</p></span>
-  <span class="review-body"><p>{{ post.body }}</p></span>
   <div class="ticket">
-    <p>Ticket : {{ post.ticket.title }}</p>
+    <p>Ticket - {{ post.ticket.user }}</p><br>
     <p>{{ post.ticket.description }}</p>
     {% if post.ticket.image %}
-    <img src="{{ post.ticket.image.url }}" alt="Ticket Image" class="ticket-image" /><br />
+    <img src="{{ post.ticket.image.url }}" alt="Ticket Image" class="post-image" /><br>
     {% else %}
     <p class="no-image">Pas d'image disponible</p>
     {% endif %}
   </div>
-</div>

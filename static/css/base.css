@@ -126,16 +126,6 @@ a, p {
   text-decoration: underline;
 }
 
-input {
-  background-color: black;
-}
-textarea {
-  background-color: black;
-}
-select {
-  background-color: black;
-}
-
 /* Responsiveness */
 
 @media (min-width: 768px) {

@@ -1,0 +1,79 @@
+        
+    /* Champs du formulaire */
+    .form-title {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #00bfff;
+    }
+    form label {
+      display: block; /* Aligne les labels sur une nouvelle ligne */
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      color: #d3d3d3;
+    }
+
+    form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1.2rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background-color: #00083f;
+      color: white;
+      font-size: 1rem;
+    }
+    
+    form input {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1.2rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background-color: #00083f;
+      color: white;
+      font-size: 1rem;
+    }
+    
+    form input:focus {/* Bordure bleue au focus */
+      outline: none;
+      border-color: #00bfff;
+      box-shadow: 0 0 5px #00bfff;
+    }
+    
+    form button {
+      width: 100%;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 6px;
+      background-color: #00bfff;
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    form button:hover {
+      background-color: #007bff; /* Couleur plus sombre au survol */
+    }
+    .rating-input label {
+    display: flex;
+    align-items: baseline;
+    }
+    .rating-input label input {
+      margin-right: 5px;
+      content: "-";
+      }
+  
+    .rating-input label input:focus {
+      box-shadow: 0 0 20px #007bff;
+      }
+  
+
+    .rating-input-row {
+      display: flex;
+      justify-content: space-between;
+      width: 70%;
+      margin: 0 auto;
+    }

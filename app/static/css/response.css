@@ -1,0 +1,37 @@
+.response-ticket {
+    border: 1px solid white;
+    padding: 10px;
+}
+.post {
+    margin-bottom: 10px;
+}
+.post-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+.post-request {
+    width: 60%;
+}
+.post-date {
+    font-size: 12px;
+}
+.post-image {
+    width: 150px;
+    height: 250px;
+    margin-left: 20px;
+    margin-bottom: 25px;
+    margin-top: 5px;
+}
+.post-response-link {
+    display: none;
+}
+.post-review-row {
+    display: ruby-text;
+}
+.ticket {
+    margin: 25px;
+    padding: 5px;
+    border: 1px solid #ffffff;
+    margin-bottom: 10px;
+}

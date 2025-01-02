@@ -1,7 +1,8 @@
 {% load static %} {% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/form.css' %}" />
 <link rel="stylesheet" href="{% static 'css/login.css' %}" />
 {% endblock %}
-<h2 class="login-section__title">Connexion</h2>
+<h2 class="form-title">Connexion</h2>
 <form method="post" class="login-form" action="{% url 'accounts_app:login' %}">
   {% csrf_token %}
   <div class="form-group">
