@@ -1,6 +1,13 @@
-{% extends 'base.html' %} {% load static %} {% block extra_css %}
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/posts.css' %}" />
-{% endblock %} {% block breadcrumb_area %}
+<link rel="stylesheet" href="{% static 'css/form.css' %}" />
+{% endblock %}
+
+{% block breadcrumb_area %}
 <div class="breadcrumb_area_first_div">
   <h2>{{ title_view }}</h2>
   <div class="breadcrumb-path">
@@ -9,9 +16,11 @@
     <span class="breadcrumb-label">{{ title_view }}</span>
   </div>
 </div>
-{% endblock %} {% block content %}
+{% endblock %}
+
+{% block content %}
 <div class="post-list">
-  <h1>Mes Posts</h1>
+  <h1 class="form-title">Vos Posts</h1>
 
   {% if messages %}
   <div class="messages">
@@ -26,22 +35,18 @@
       {% if post.title %}
       <div class="ticket-list">
         {% include 'app/flux/ticket_snippet.html' %}
-        <span><a href="{% url 'app:post-update' post.id %}">Modifier</a></span>
-        <span>
-          <button class="btn-delete" data-id="{{ post.id }}" data-url="{% url 'app:post-delete' post.id %}">
-            Supprimer
-          </button>
-        </span>
+        <div class="post-footer">
+        <a class="update-link" href="{% url 'app:post-update' post.id %}">Modifier</a>
+          <button class="btn-delete" data-id="{{ post.id }}" data-url="{% url 'app:post-delete' post.id %}">Supprimer</button>
+          </div>
       </div>
       {% elif post.headline %}
       <div class="review-list">
         {% include 'app/flux/review_snippet.html' %}
-        <span><a href="{% url 'app:post-update' post.id %}">Modifier</a></span>
-        <span>
-          <button class="btn-delete" data-id="{{ post.id }}" data-url="{% url 'app:post-delete' post.id %}">
-            Supprimer
-          </button>
-        </span>
+        <div class="post-footer">
+        <a class="update-link" href="{% url 'app:post-update' post.id %}">Modifier</a>
+          <button class="btn-delete" data-id="{{ post.id }}" data-url="{% url 'app:post-delete' post.id %}">Supprimer</button>
+        </div>
       </div>
       {% endif %}
     </div>

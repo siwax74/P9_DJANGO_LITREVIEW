@@ -9,9 +9,17 @@
     <label for="{{ request_ticket_form.description.id_for_label }}">Description :</label>
     {{ request_ticket_form.description }} {{ request_ticket_form.description.errors }}
   </div>
-  <div>
-    <label for="{{ request_ticket_form.image.id_for_label }}">Image :</label>
-    {{ request_ticket_form.image }} {{ request_ticket_form.image.errors }}
+    {% if request_ticket_form.instance.image %}
+    <div class="actual-image">
+      <label for="{{ request_ticket_form.image.id_for_label }}">Image actuel:</label>
+        <div>
+            <img src="{{ request_ticket_form.instance.image.url }}" alt="Image actuelle" style="max-width: 200px; max-height: 200px;">
+        </div>
+    {% endif %}
+    <div class="downloading-image">
+      <div class="label-image" for="{{ request_ticket_form.image.id_for_label }}">Image:</div>
+      <input type="file" name="image" accept="image/*" id="id_image">
   </div>
+</div>
   <button type="submit">Soumettre</button>
 </form>

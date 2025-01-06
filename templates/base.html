@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="{% static 'css/base.css' %}" />
     <link rel="stylesheet" href="{% static 'css/breadcrumb.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/menu.css' %}" />
     <link rel="shortcut icon" type="image/png" href="{% static 'img/logos/litreview.png' %}" />
     {% block extra_css %}{% endblock %}
   </head>
@@ -55,6 +54,18 @@
     </div>
 
     <section class="breadcrumb_area">{% block breadcrumb_area %} {% endblock %}</section>
+    <section class="">{% block message %}
+      {% if messages %}
+      <!-- Afficher les messages -->
+      <div class="messages">
+          {% for message in messages %}
+              <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+                  {{ message }}
+              </div>
+          {% endfor %}
+      </div>
+  {% endif %} {% endblock %}</section>
+
 
     <main class="main-content">{% block content %}{% endblock %}</main>
 
@@ -64,8 +75,10 @@
       </div>
     </footer>
 
-    {% block extra_js %}
     <script src="{% static 'js/menu.js' %}"></script>
+    <script src="{% static 'js/message.js' %}"></script>
+    
+    {% block extra_js %}
     {% endblock extra_js %}
   </body>
 </html>

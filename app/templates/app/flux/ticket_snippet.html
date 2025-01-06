@@ -3,7 +3,7 @@
     {% if post.user == request.user %}
     <span class="post-request">Vous avez demandé une critique</span>
     {% else %}
-    <span class="post-request">{{ post.user.email }} a demandé une critique</span>
+    <span class="post-request">{{ post.user }} a demandé une critique</span>
     {% endif %}
     <span class="post-date">{{ post.time_created|date:"d M Y H:i" }}</span>
   </div>

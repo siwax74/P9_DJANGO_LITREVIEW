@@ -1,0 +1,47 @@
+.update-post {
+    border: 1px solid white;
+    padding: 10px;
+}
+
+.post {
+    margin-bottom: 10px;
+}
+.post-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+.post-request {
+    width: 80%;
+}
+.post-date {
+    font-size: 12px;
+}
+.post-image {
+    width: 150px;
+    height: 250px;
+    margin-left: 20px;
+    margin-bottom: 25px;
+    margin-top: 5px;
+}
+.post-response-link {
+    display: flex;
+    justify-content: flex-end;
+}
+.post-review-row {
+    display: ruby-text;
+}
+.ticket {
+    padding: 5px;
+    border: 1px solid #ffffff;
+    margin-bottom: 10px;
+}
+
+.review {
+    padding: 5px;
+    border: 1px solid #ffffff;
+    margin-bottom: 10px;
+}
+.review .ticket {
+    margin-top: 5px;
+}

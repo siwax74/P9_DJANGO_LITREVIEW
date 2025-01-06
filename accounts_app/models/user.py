@@ -4,17 +4,19 @@ from accounts_app.models.user_manager import CustomUserManager
 
 
 class Customer(AbstractUser):
-    username = None
-    email = models.EmailField(max_length=254, unique=True)
+
+    username = models.CharField(max_length=10, unique=True)
+    email = models.EmailField(max_length=254, unique=True, null=True, blank=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
-    USERNAME_FIELD = "email"
+    USERNAME_FIELD = "username"
     REQUIRED_FIELDS = []
+
     objects = CustomUserManager()
 
     def __str__(self):
         """
         Returns a string representation of the Customer instance.
         """
-        return f"{self.email}"
+        return self.username

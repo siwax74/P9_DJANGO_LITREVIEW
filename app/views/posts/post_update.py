@@ -22,7 +22,7 @@ def post_update(request, post_id):
 
     if request.method == "POST":
         if ticket:
-            form = RequestTicketForm(request.POST, instance=ticket)
+            form = RequestTicketForm(request.POST, request.FILES, instance=ticket)
         else:
             form = ResponseReviewForm(request.POST, instance=review)
 

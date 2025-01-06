@@ -3,7 +3,7 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/form.css' %}" />
-
+<link rel="stylesheet" href="{% static 'css/posts.css' %}" />
 {% endblock %}
 
 {% block breadcrumb_area %}
@@ -19,4 +19,8 @@
 
 {% block content %}
 {% include 'app/tickets/ticket_form.html' with post=ticket %}
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/post-update.js' %}"></script>
 {% endblock %}

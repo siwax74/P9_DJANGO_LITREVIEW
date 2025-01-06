@@ -8,24 +8,21 @@ User = get_user_model()
 
 def signup(request):
     if request.method == "POST":
-        first_name = request.POST.get("first_name")
-        last_name = request.POST.get("last_name")
-        email = request.POST.get("email")
+        username = request.POST.get("username")
         password = request.POST.get("password")
         password1 = request.POST.get("password1")
         try:
+            if len(username) > 10:
+                messages.add_message(request, messages.ERROR, "Le nom d'utilisateur ne doit pas dépasser 10 caractères.")
+                return render(request, "accounts_app/signup.html")
             if password != password1:
                 messages.add_message(request, messages.ERROR, "Les mots de passe ne correspondent pas.")
-            user = Customer.objects.get(email=email)
-            messages.add_message(
-                request, messages.ERROR, "Un compte utilisateur avec cette adresse email existe déjà."
-            )
+            user = Customer.objects.get(username=username)
+            messages.add_message(request, messages.ERROR, "Un compte utilisateur existe déjà.")
         except Customer.DoesNotExist:
             if password == password1:
-                user = Customer.objects.create_user(
-                    email=email, password=password, first_name=first_name, last_name=last_name
-                )
-                user = authenticate(request, email=email, password=password)
+                user = Customer.objects.create_user(username=username, password=password)
+                user = authenticate(request, username=username, password=password)
                 login(request, user)
                 return redirect("app:flux")
     return render(request, "accounts_app/signup.html")
