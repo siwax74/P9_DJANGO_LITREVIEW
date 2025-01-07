@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model
 
 
+@login_required
 def followers_list(request):
     title_view = "Abonnements"
     user = request.user
@@ -26,17 +27,18 @@ def followers_list(request):
     return render(request, "accounts_app/followers_list.html", context)
 
 
+@login_required
 def search_user(request):
     if request.method == "POST":
         research_user_form = UserSearchForm(request.POST)
         if research_user_form.is_valid():
             user = request.user
-            research_user_email = research_user_form.cleaned_data["email"]
+            research_user = research_user_form.cleaned_data["username"]
 
             try:
-                followed_user = Customer.objects.get(email=research_user_email)
+                followed_user = Customer.objects.get(username=research_user)
 
-                if user.email == followed_user.email:
+                if user.username == followed_user.username:
                     return HttpResponse("Impossible de vous suivre vous même !", status=400)
 
                 if UserFollows.objects.filter(user=user, followed_user=followed_user).exists():
@@ -47,7 +49,7 @@ def search_user(request):
             except Customer.DoesNotExist:
                 return HttpResponse("Utilisateur non trouvé !", status=404)
         else:
-            return HttpResponse("Veuillez entrer un Email valide !", status=400)
+            return HttpResponse("Veuillez entrer un username valide !", status=400)
 
 
 @login_required

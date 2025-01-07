@@ -9,7 +9,7 @@
 
 {% block breadcrumb_area %}
 <div class="breadcrumb_area_first_div">
-  <h2>{{ title_view }}</h2>
+  <h2 class="form-title">{{ title_view }}</h2>
   <div class="breadcrumb-path">
     <a href="{% url 'app:flux' %}" class="breadcrumb-link">Flux</a>
     <span class="breadcrumb-arrow">→</span>
@@ -20,8 +20,6 @@
 
 {% block content %}
 <div class="post-list">
-  <h1 class="form-title">Vos Posts</h1>
-
   {% if messages %}
   <div class="messages">
     {% for message in messages %}

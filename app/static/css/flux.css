@@ -73,6 +73,9 @@
 .post-review-row {
     display: ruby-text;
 }
+.fas.fa-star {
+    color: #ffd700;
+}
 .ticket {
     padding: 5px;
     border: 1px solid #ffffff;

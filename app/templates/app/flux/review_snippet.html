@@ -10,7 +10,17 @@
 
   <div class="post-review-row">
   <div class="post-title" ><h4>{{ post.headline }}</h4></div>
-  <div class="post-rating"><p>- {{ post.rating }}/5</p></div>
+  <div class="post-rating">
+    <p>- 
+      {% for i in "12345" %}
+        {% if i|add:0 <= post.rating %}
+          <i class="fas fa-star"></i>
+        {% else %}
+          <i class="far fa-star"></i>
+        {% endif %}
+      {% endfor %}
+    </p>
+  </div>
   </div>
 
   <div class="post-description"><p>{{ post.body }}</p></div>

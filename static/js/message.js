@@ -2,8 +2,8 @@ const messageElements = document.querySelectorAll(".messages");
 
 function removeMessage(element) {
   setTimeout(() => {
-    element.remove(); // Supprime l'élément du DOM
-  }, 3000); // 3000 millisecondes = 3 secondes
+    element.remove();
+  }, 3000);
 }
 
 // Appliquer la fonction à chaque message

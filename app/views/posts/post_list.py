@@ -2,10 +2,12 @@ from itertools import chain
 from django.shortcuts import render
 from app.models.review import Review
 from app.models.ticket import Ticket
+from django.contrib.auth.decorators import login_required
 
 
+@login_required
 def post_list(request):
-    title_view = "Posts"
+    title_view = "Vos posts"
     user = request.user
     tickets_user = Ticket.objects.filter(user=user)
     reviews_user = Review.objects.filter(user=user)

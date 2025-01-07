@@ -21,6 +21,9 @@
 .post-date {
     font-size: 12px;
 }
+.fas.fa-star {
+    color: #ffd700;
+}
 .post-image {
     width: 150px;
     height: 250px;

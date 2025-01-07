@@ -2,6 +2,6 @@ from django import forms
 
 
 class UserSearchForm(forms.Form):
-    email = forms.EmailField(
-        max_length=150, label="", widget=forms.EmailInput(attrs={"placeholder": "Entrez l'email de l'utilisateur"})
+    username = forms.CharField(
+        max_length=10, label="", widget=forms.TextInput(attrs={"placeholder": "Entrez le nom d'utilisateur"})
     )

@@ -1,9 +1,7 @@
 from django.shortcuts import redirect, render
-from django.contrib.auth import get_user_model, authenticate, login
+from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from accounts_app.models.user import Customer
-
-User = get_user_model()
 
 
 def signup(request):
@@ -13,7 +11,9 @@ def signup(request):
         password1 = request.POST.get("password1")
         try:
             if len(username) > 10:
-                messages.add_message(request, messages.ERROR, "Le nom d'utilisateur ne doit pas dépasser 10 caractères.")
+                messages.add_message(
+                    request, messages.ERROR, "Le nom d'utilisateur ne doit pas dépasser 10 caractères."
+                )
                 return render(request, "accounts_app/signup.html")
             if password != password1:
                 messages.add_message(request, messages.ERROR, "Les mots de passe ne correspondent pas.")

@@ -1,15 +1,24 @@
-{% extends 'base.html' %} {% load static %} {% block extra_css %}
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/flux.css' %}" />
-{% endblock %} {% block breadcrumb_area %}
+<link rel="stylesheet" href="{% static 'css/form.css' %}" />
+{% endblock %}
+
+{% block breadcrumb_area %}
 <div class="breadcrumb_area_first_div">
-  <h2>{{ title_view }}</h2>
+  <h2 class="form-title">{{ title_view }}</h2>
   <div class="breadcrumb-path">
     <a href="{% url 'app:flux' %}" class="breadcrumb-link">Flux</a>
     <span class="breadcrumb-arrow">→</span>
     <span class="breadcrumb-label">Flux</span>
   </div>
 </div>
-{% endblock %} {% block content %}
+{% endblock %}
+
+{% block content %}
 <div class="flux">
   <div class="action-links">
     <a href="{% url 'app:show-ticket-form' %}" class="btn btn-primary">Demander une critique</a>
@@ -37,3 +46,4 @@
     {% endif %}
 </div>
 {% endblock %}
+

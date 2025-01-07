@@ -3,27 +3,45 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
+    <!-- Métadonnées de base -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LitReview</title>
+
+    <!-- Liens vers les polices Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Feuilles de style CSS -->
     <link rel="stylesheet" href="{% static 'css/base.css' %}" />
     <link rel="stylesheet" href="{% static 'css/breadcrumb.css' %}" />
+
+    <!-- Favicon du site -->
     <link rel="shortcut icon" type="image/png" href="{% static 'img/logos/litreview.png' %}" />
+
+    <!-- Bloc pour les feuilles de style supplémentaires -->
     {% block extra_css %}{% endblock %}
   </head>
   <body class="body">
+    <!-- En-tête du site -->
     <header class="header">
+      <!-- Logo du site avec lien vers la page d'accueil -->
       <a class="link-logo-header" href="{% url 'app:home' %}">
         <img src="{% static 'img/logos/litreview.png' %}" alt="Logo du site" class="logo" />
       </a>
+
+      <!-- Navigation principale -->
       <nav class="navigation" id="navigation-menu">
         <ul class="nav-list">
+          <!-- Liens pour les utilisateurs non connectés -->
           {% if not user.is_authenticated %}
           <li class="nav-item">
             <a href="{% url 'app:home' %}" class="nav-link">Accueil</a>
           </li>
-          {% endif %} {% if user.is_authenticated %}
+          {% endif %}
+
+          <!-- Liens pour les utilisateurs connectés -->
+          {% if user.is_authenticated %}
           <li class="nav-item">
             <a href="{% url 'app:flux' %}" class="nav-link">Flux</a>
           </li>
@@ -39,6 +57,8 @@
           {% endif %}
         </ul>
       </nav>
+
+      <!-- Bouton du menu hamburger pour les écrans mobiles -->
       <div class="menu-bar">
         <button id="hamburger-button" aria-label="Toggle navigation">
           <span></span>
@@ -47,37 +67,51 @@
         </button>
       </div>
     </header>
+
+    <!-- Section de bienvenue pour les utilisateurs connectés -->
     <div class="diviser-header">
       {% if user.is_authenticated %}
       <h3 class="home__welcome">Bienvenue, {{ user }} !</h3>
       {% endif %}
     </div>
 
-    <section class="breadcrumb_area">{% block breadcrumb_area %} {% endblock %}</section>
-    <section class="">{% block message %}
-      {% if messages %}
-      <!-- Afficher les messages -->
-      <div class="messages">
-          {% for message in messages %}
-              <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
-                  {{ message }}
-              </div>
-          {% endfor %}
-      </div>
-  {% endif %} {% endblock %}</section>
+    <!-- Section pour le fil d'Ariane (breadcrumb) -->
+    <section class="breadcrumb_area">
+      {% block breadcrumb_area %} 
+      {% endblock %}
+    </section>
 
+    <!-- Affichage des messages (erreurs, succès, etc.) -->
+    {% if messages %}
+    <div class="messages">
+      {% for message in messages %}
+        <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    </div>
+    {% endif %}
 
-    <main class="main-content">{% block content %}{% endblock %}</main>
+    <!-- Contenu principal de la page -->
+    <main class="main-content">
+      {% block content %}
+      {% endblock %}
+    </main>
 
+    <!-- Pied de page -->
     <footer class="footer">
       <div class="container">
-        <!-- Contenu du pied de page -->
+        <div class="copy-text">
+          <p>&copy; 2025 All rights reserved by <a href="https://github.com/siwax74" target="_blank">D.GEY</a></p>
+        </div>
       </div>
     </footer>
 
+    <!-- Scripts JavaScript -->
     <script src="{% static 'js/menu.js' %}"></script>
     <script src="{% static 'js/message.js' %}"></script>
-    
+
+ <!-- Bloc pour les scripts JavaScript supplémentaires -->
     {% block extra_js %}
     {% endblock extra_js %}
   </body>

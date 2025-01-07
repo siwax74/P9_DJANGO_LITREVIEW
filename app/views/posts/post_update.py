@@ -5,8 +5,10 @@ from app.forms.response_review_form import ResponseReviewForm
 from app.forms.request_ticket_form import RequestTicketForm
 from app.models.review import Review
 from app.models.ticket import Ticket
+from django.contrib.auth.decorators import login_required
 
 
+@login_required
 def post_update(request, post_id):
     title_view = "Modification"
 
