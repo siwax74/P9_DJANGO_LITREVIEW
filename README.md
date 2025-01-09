@@ -14,20 +14,35 @@
 
 Pour installer LitReview, suivez ces étapes :
 
-1. Clonez le dépôt Git :
+1. Vérifiez que Python 3.8 ou une version supérieure est installé sur votre machine.
+    Exécutez la commande suivante dans votre terminal pour vérifier la version installée :
+    ```bash
+    Copier le code
+    python --version
+    ```
+    ou, selon votre configuration :
+    ```bash
+    Copier le code
+    python3 --version
+    ```
+    Si la version affichée est inférieure à 3.8 ou si Python n'est pas installé, téléchargez et installez une version récente depuis le site officiel.
+    ```bash
+    https://www.python.org/downloads/
+   ```
+2. Clonez le dépôt Git :
    ```bash
    git clone https://github.com/siwax74/P9_DJANGO_LITREVIEW
    ```
-2. Activez l'environnement virtuel :
+3. Activez l'environnement virtuel :
    ```bash
    source env/bin/activate # Sur Mac/Linux
    env\Scripts\activate    # Sur Windows
    ```
-3. Installez les dépendances nécessaires :
+4. Installez les dépendances nécessaires :
    ```bash
    pip install -r requirements.txt
    ```
-4. Démarrez le serveur de développement :
+5. Démarrez le serveur de développement :
    ```bash
    python manage.py runserver
    ```
@@ -101,6 +116,13 @@ Voici quelques captures d'écran de l'application en action :
 - **DG.**
 
 ## 📄 Licence
+
+Ce projet est sous licence MIT. Vous êtes libre de modifier et de redistribuer le code source. Consultez le fichier `LICENSE` pour plus d'informations.
+
+## Remerciements
+
+Un grand merci aux contributeurs de Django et de toutes les bibliothèques utilisées dans ce projet pour leur travail incroyable !
+Merci également à l'organisme de formation OpenClassrooms pour son soutien pédagogique.
 
 Ce projet est sous licence MIT. Vous êtes libre de modifier et de redistribuer le code source. Consultez le fichier `LICENSE` pour plus d'informations.
 
