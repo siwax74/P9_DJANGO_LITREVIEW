@@ -33,16 +33,20 @@ Pour installer LitReview, suivez ces étapes :
    ```bash
    git clone https://github.com/siwax74/P9_DJANGO_LITREVIEW
    ```
-3. Activez l'environnement virtuel :
+3. Créer l'environnement virtuel :
+   ```bash
+   python -m venv env
+   ```
+4. Activez l'environnement virtuel :
    ```bash
    source env/bin/activate # Sur Mac/Linux
    env\Scripts\activate    # Sur Windows
    ```
-4. Installez les dépendances nécessaires :
+5. Installez les dépendances nécessaires :
    ```bash
    pip install -r requirements.txt
    ```
-5. Démarrez le serveur de développement :
+6. Démarrez le serveur de développement :
    ```bash
    python manage.py runserver
    ```
