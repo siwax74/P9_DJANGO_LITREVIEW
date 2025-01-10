@@ -127,10 +127,3 @@ Ce projet est sous licence MIT. Vous êtes libre de modifier et de redistribuer 
 
 Un grand merci aux contributeurs de Django et de toutes les bibliothèques utilisées dans ce projet pour leur travail incroyable !
 Merci également à l'organisme de formation OpenClassrooms pour son soutien pédagogique.
-
-Ce projet est sous licence MIT. Vous êtes libre de modifier et de redistribuer le code source. Consultez le fichier `LICENSE` pour plus d'informations.
-
-## Remerciements
-
-Un grand merci aux contributeurs de Django et de toutes les bibliothèques utilisées dans ce projet pour leur travail incroyable !
-Merci également à l'organisme de formation OpenClassrooms pour son soutien pédagogique.
